@@ -231,7 +231,6 @@ function App() {
           <div className="container px-4 px-lg-5">
             <h2>Activities & Accomplishments</h2>
             <ul className="activities-list">
-              <ul className="activities-list">
               <li>Society of Hispanic Professional Engineers (SHPE) – Member (2021 – Present)</li>
               <li>Google Developer Student Club Member (2022 - Present)</li>
               <li>Theta Tau Professional Engineering Fraternity (2022 – Present)</li>
