@@ -1,114 +1,188 @@
 @charset "UTF-8";
-/* Ensure the main app wrapper sits above the galaxy canvas */
+
+/* ===================== Global App Layout ===================== */
 .App {
   position: relative;
   z-index: 1;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #111;
 }
 
-/* Likewise, make each content section overlay the canvas */
 .content-section {
   position: relative;
   z-index: 2;
-}
-
-/* ===================== Root Variables ===================== */
-:root {
-  --primary-bg: #000;
-  --secondary-bg: rgba(0, 0, 0, 0.75);
-  --accent-color: #ffffff;
-  --light-gray: #888;
-  --lighter-gray: #aaa;
-  --body-font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-}
-
-/* ===================== Global Resets & Base ===================== */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  background-color: var(--primary-bg);
-  color: var(--accent-color);
-  font-family: var(--body-font-family);
-  line-height: 1.5;
-  text-align: left;
-}
-
-img { max-width: 100%; display: block; }
-
-/* ===================== Headings & Typography ===================== */
-h1,h2,h3,h4,h5,h6 { font-weight: 700; margin-bottom: 0.5rem; color: var(--accent-color); line-height: 1.2; }
-h1 { font-size: clamp(2rem,5vw,4rem); letter-spacing:-1px; }
-h2 { font-size: clamp(1.75rem,3vw,3rem); letter-spacing:-0.5px; }
-h3 { font-size: clamp(1.5rem,2.5vw,2rem); }
-p { margin-bottom:1rem; color: var(--accent-color); font-size:1rem; }
-a { color: var(--accent-color); text-decoration:none; transition: color 0.2s ease; }
-a:hover { color: var(--lighter-gray); }
-
-/* ===================== Header / Masthead ===================== */
-.masthead { background: transparent; padding:5rem 0 3rem; text-align:center; position:relative; }
-.masthead h1 { font-size: clamp(3rem,8vw,6rem); margin-bottom:1.5rem; }
-.masthead hr { width:60px; margin:0.5rem auto 0; border:none; border-top:2px solid var(--light-gray); }
-
-/* ===================== Navigation Buttons ===================== */
-#navButtons { display:flex; justify-content:center; gap:2rem; background:transparent; padding:1rem 0; }
-.navButton { font-size:1rem; font-weight:500; text-transform:uppercase; letter-spacing:0.5px; color:var(--accent-color); padding:0.5rem 1rem; border:1px solid transparent; transition:background-color 0.3s, color 0.3s; }
-.navButton:hover { background-color: var(--accent-color); color: var(--primary-bg); }
-
-/* ===================== Sections ===================== */
-.content-section {
-  padding: 4rem 0;
+  padding: 4rem 1rem;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 8px;
+  background: transparent;
   margin: 2rem 0;
 }
 
-.content-section h2,
-.content-section h3,
-.content-section p,
-.content-section ul,
-.content-section a {
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+/* ===================== Frosted Glass Card Style ===================== */
+.card-style {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 700px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  color: #fff;
 }
-.container { max-width:1200px; margin:0 auto; padding:0 1rem; }
-.text-center { text-align:center; }
 
-/* ===================== Cards ===================== */
-.education-card, .experience-card, .portfolio-card, .skill-card {
-  background-color: var(--secondary-bg);
-  border:1px solid #222;
-  border-radius:8px;
-  padding:2rem;
-  margin:2rem auto;
-  max-width:600px;
-  text-align:center;
-  cursor:pointer;
-  transition:transform 0.2s, background-color 0.3s;
+.card-style img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 2px solid #fff;
 }
-.education-card img, .experience-card img, .portfolio-card img { width:80px; height:80px; border-radius:50%; margin-bottom:1rem; object-fit:cover; border:2px solid var(--light-gray); }
-.education-card:hover, .experience-card:hover, .portfolio-card:hover { transform: translateY(-4px); background-color: rgba(30,30,30,0.9); }
 
-.description { display:none; margin:1rem auto; max-width:600px; padding:1.5rem; background-color: rgba(30,30,30,0.9); border:1px solid #222; border-radius:8px; text-align:left; }
-.description p, .description li { margin-bottom:0.5rem; color:var(--accent-color); }
+.card-style:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 25px rgba(255, 255, 255, 0.3);
+}
 
-/* ===================== Skills Section ===================== */
-.skills-container, .activities-list { display:flex; justify-content:center; flex-wrap:wrap; gap:1.5rem; margin-top:2rem; padding:0 1rem; background: transparent; }
-.skill-card { width:150px; padding:1.5rem 0.5rem; animation: floating 4s ease-in-out infinite; }
-@keyframes floating { 0%{transform:translateY(0);} 50%{transform:translateY(-8px);} 100%{transform:translateY(0);} }
+/* ===================== Descriptions ===================== */
+.description {
+  display: none;
+  margin: 1rem auto;
+  max-width: 700px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  text-align: left;
+  color: #fff;
+}
 
-/* ===================== Activities List ===================== */
-.activities-list { list-style:none; padding:0; max-width:900px; margin:2rem auto; text-align:left; }
-.activities-list li { margin-bottom:0.75rem; position:relative; padding-left:1.5rem; color:var(--accent-color); }
-.activities-list li::before { content:"•"; position:absolute; left:0; top:0; color:var(--light-gray); }
+/* ===================== Typography ===================== */
+h1, h2, h3 {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
 
-/* ===================== Contact & Footer ===================== */
-#contact { background: transparent; }
-.lead { margin-bottom:1rem; font-size:1.125rem; }
-footer.footer { background: transparent; padding:2rem 0; text-align:center; }
-footer.footer p { margin:0; color:var(--light-gray); font-size:0.875rem; }
+p, li {
+  color: #f1f1f1;
+}
 
-/* ===================== Responsiveness ===================== */
-@media(max-width:768px){ .masthead{padding:3rem 0 2rem;} #navButtons{flex-wrap:wrap;gap:1rem;} .education-card, .experience-card, .portfolio-card{margin:1rem auto;width:90%;} .skill-card{margin:0 auto;} .activities-list{margin:1.5rem auto;} }
+a {
+  color: #ffffff;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #ddd;
+}
+
+/* ===================== Navigation ===================== */
+#navButtons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.navButton {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.navButton:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* ===================== Skills & Activities ===================== */
+.skills-container,
+.activities-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.skill-card {
+  width: 160px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  text-align: center;
+  animation: floating 4s ease-in-out infinite;
+  color: #fff;
+  font-weight: 500;
+}
+
+.activities-list {
+  list-style: none;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding-left: 0;
+  text-align: left;
+  color: #fff;
+}
+
+.activities-list li {
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+.activities-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #ccc;
+}
+
+/* ===================== Animations ===================== */
+@keyframes floating {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+/* ===================== Footer & Contact ===================== */
+footer.footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: #bbb;
+  font-size: 0.9rem;
+}
+
+#contact .lead,
+footer.footer p {
+  color: #ddd;
+}
+
+/* ===================== Responsive ===================== */
+@media (max-width: 768px) {
+  .card-style {
+    margin: 1.5rem auto;
+    width: 90%;
+  }
+
+  .skill-card {
+    width: 120px;
+  }
+
+  #navButtons {
+    gap: 1rem;
+  }
+}
