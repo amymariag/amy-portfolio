@@ -99,12 +99,12 @@ function App() {
                 <h3>University of Central Florida</h3>
                 <p>Honors Bachelor of Computer Science</p>
                 <p>Orlando, Florida | GPA: 3.5</p>
-                <p>Expected Graduation: December 2025</p>
+                <p>Expected Graduation: August 2025</p>
               </div>
               <div id="ucf" className="description">
                 <p>
                   <strong>Relevant Coursework:</strong><br />
-                  Computer Science II, Advanced Data Structures, Object-Oriented Programming, Artificial Intelligence, Computer Logic and Organization, Algorithms for Machine Learning, Systems Software, Database Systems, Discrete Structures
+                  Data Structures, Object-Oriented Design, Database Systems, Artificial Intelligence, Algorithms for Machine Learning, Discrete Structures, Operating Systems, System Software
                 </p>
               </div>
 
@@ -126,45 +126,57 @@ function App() {
             <div className="experience-card" data-target="tesla">
               <img src="assets/img/tesla.svg" alt="Tesla" />
               <h3>Tesla</h3>
-              <p>Software Engineering Intern</p>
-              <p>Palo Alto, CA | May 2024 - August 2024</p>
+              <p>Software Engineer Intern</p>
+              <p>Palo Alto, CA | May 2025 - August 2025</p>
             </div>
             <div id="tesla" className="description">
               <ul>
-                <li>Developed Python scripts (using <code>requests</code> and <code>pandas</code>) to automate data entry and retrieval, enhancing efficiency in data organization.</li>
-                <li>Created an internal website (HTML/CSS/JavaScript) to streamline repair request processes across Tesla’s North American sites, reducing response times significantly.</li>
-                <li>Coordinated live AV systems for Tesla’s Annual Shareholder’s Event, ensuring seamless experiences for over 600 in-person attendees and millions of online viewers.</li>
-                <li>Contributed to Tesla’s brand by implementing technical solutions that optimized communication and minimized downtime.</li>
+                <li>Designed and built a responsive digital signage management portal using Angular.js and Spring Boot, improving usability for AV technicians managing global content displays.</li>
+                <li>Integrated Samsung MagicInfo APIs via Swagger to power real-time scheduling, playback control, and system monitoring for digital displays.</li>
+                <li>Developed interactive data visualizations for AI-generated insights using frontend chart libraries.</li>
+              </ul>
+            </div>
+
+            <div className="experience-card" data-target="tesla2024">
+              <img src="assets/img/tesla.svg" alt="Tesla" />
+              <h3>Tesla</h3>
+              <p>Software Engineer Intern</p>
+              <p>Palo Alto, CA | May 2024 - August 2024</p>
+            </div>
+            <div id="tesla2024" className="description">
+              <ul>
+                <li>Created internal UI dashboards for AV system health and reliability, improving information clarity and reducing troubleshooting time for engineers.</li>
+                <li>Built CI/CD pipelines for automated frontend deployments using GitHub Actions and Kubernetes.</li>
+                <li>Optimized distributed SQL queries in Presto, improving query performance by 20%.</li>
+                <li>Supported Tesla’s 2024 Annual Shareholder Meeting with live AV monitoring tools.</li>
               </ul>
             </div>
 
             <div className="experience-card" data-target="siemens">
               <img src="assets/img/siemens.jpg" alt="Siemens AG" />
               <h3>Siemens AG</h3>
-              <p>Technical Software Intern</p>
+              <p>Software Engineer Intern</p>
               <p>Orlando, FL | February 2023 - April 2024</p>
             </div>
             <div id="siemens" className="description">
               <ul>
-                <li>Built a Full Stack Dashboard with React and Kotlin for trade compliance data visualization, cutting query time by 50%.</li>
-                <li>Automated data transformations with custom Python and SQL scripts in Alteryx, reducing processing time by 60% and boosting decision-making accuracy.</li>
-                <li>Developed applications with Mendix and React to digitize document management, achieving a 50% increase in team efficiency.</li>
-                <li>Leveraged Power Automate to optimize workflows like file uploads and data synchronization, enhancing operational performance.</li>
+                <li>Automated compliance data workflows using Python, JavaScript, and Power Automate, eliminating manual processing of 5,000+ monthly transactions.</li>
+                <li>Developed Mendix apps with React components to digitize legacy processes.</li>
+                <li>Led requirements meetings with 50+ stakeholders to improve compliance tools.</li>
               </ul>
             </div>
 
             <div className="experience-card" data-target="fsi">
               <img src="assets/img/fsi.png" alt="Florida Space Institute" />
               <h3>Florida Space Institute</h3>
-              <p>Software Engineering Intern</p>
-              <p>Orlando, FL | January 2023 - April 2023</p>
+              <p>Software Engineer Intern</p>
+              <p>Orlando, FL | January 2023 - March 2023</p>
             </div>
             <div id="fsi" className="description">
               <ul>
-                <li>Designed Arduino code to interface with vacuum pressure sensors, enabling real-time monitoring for experimental chambers.</li>
-                <li>Integrated software with lab equipment using serial communication protocols and libraries (Matplotlib, PyQt) for live data visualization.</li>
-                <li>Collaborated with multidisciplinary teams to develop custom software solutions for space research, improving experimental accuracy.</li>
-                <li>Implemented analog-to-digital conversion algorithms for precise measurement of pressure levels, aiding critical space research.</li>
+                <li>Programmed Arduino-based systems to collect and log real-time vacuum sensor data.</li>
+                <li>Built interactive visualization tools with Matplotlib and PyQt for rapid analysis.</li>
+                <li>Collaborated with engineering teams to deliver integrated research solutions.</li>
               </ul>
             </div>
           </div>
@@ -173,15 +185,37 @@ function App() {
         <section id="skills" className="content-section bg-primary text-white text-center">
           <div className="container px-4 px-lg-5">
             <h2>Skills</h2>
-            <div className="skills-container">
-              {/* List skill cards here, similar to above */}
-            </div>
+            <ul>
+              <li><strong>Languages:</strong> Java, C/C++, Python, JavaScript, Go, Swift, SQL, HTML/CSS</li>
+              <li><strong>Frameworks:</strong> SwiftUI / AppKit, Node.js, React, Spring Boot, Flask, Vue.js</li>
+              <li><strong>Tools and DevOps:</strong> Docker, Kubernetes, WebSocket, Xcode, Unity, Figma, Git, Linux, AWS, Final Cut Pro, Photoshop</li>
+              <li><strong>Spoken Languages:</strong> Spanish (Bilingual), German (C1 Certified)</li>
+            </ul>
           </div>
         </section>
 
         <section id="portfolio" className="content-section text-center">
           <div className="container px-4 px-lg-5">
             <h2>Portfolio</h2>
+
+            <div className="portfolio-card" data-target="mindmove">
+              <img src="assets/img/mindmove.png" alt="MindMove App" />
+              <h3>MindMove – Micro-Activity Wellness App</h3>
+              <p>July 2025 | Swift, SwiftUI, HealthKit, WatchKit, CoreMotion, Figma</p>
+            </div>
+            <div id="mindmove" className="description">
+              <p>Created an iOS and Apple Watch app that encourages short movement breaks throughout the day by detecting sedentary patterns via HealthKit and CoreMotion; delivered haptic reminders and tracked streaks in SwiftUI.</p>
+            </div>
+
+            <div className="portfolio-card" data-target="swiftpoker">
+              <img src="assets/img/swiftpoker.png" alt="SwiftPoker App" />
+              <h3>SwiftPoker – Multiplayer Poker App</h3>
+              <p>May 2025 | Swift, WebSocket, Figma, Git</p>
+            </div>
+            <div id="swiftpoker" className="description">
+              <p>Built a multiplayer iOS game in Swift with synchronized game state via WebSockets and UI flows designed in Figma.</p>
+            </div>
+
             <div className="portfolio-card" data-target="notion-cli">
               <img src="assets/img/notion-cli.png" alt="Notion CLI Mailbox Manager" />
               <h3>Notion CLI Mailbox Manager</h3>
@@ -190,7 +224,6 @@ function App() {
             <div id="notion-cli" className="description">
               <p>Developed a Node.js CLI tool to interact with a Notion database, enabling mailbox-like message handling with secure API integration.</p>
             </div>
-            {/* Continue other portfolio items */}
           </div>
         </section>
 
@@ -200,7 +233,6 @@ function App() {
             <ul className="activities-list">
               <li>Theta Tau Professional Engineering Fraternity - Academic Chair (2024 - Present)</li>
               <li>Society of Hispanic Professional Engineers (2021 - Present)</li>
-              {/* Continue list items */}
             </ul>
           </div>
         </section>
