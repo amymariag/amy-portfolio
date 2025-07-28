@@ -292,6 +292,7 @@ export default function Galaxy({
     }
     animateId = requestAnimationFrame(update);
     ctn.appendChild(gl.canvas);
+    gl.canvas.classList.add("galaxy-canvas");
 
     function handleMouseMove(e) {
       const rect = ctn.getBoundingClientRect();

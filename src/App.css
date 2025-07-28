@@ -186,3 +186,21 @@ footer.footer p {
     gap: 1rem;
   }
 }
+
+/* === Galaxy Canvas Background Fix === */
+.galaxy-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none; /* Allows clicks to pass through */
+  display: block;
+  background: transparent !important;
+}
+
+/* Make sure .App and all main containers are transparent */
+.App, .masthead, .container {
+  background: transparent !important;
+}
