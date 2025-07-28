@@ -12,18 +12,16 @@ code {
     monospace;
 }
 
-html, body {
-  margin: 0;
-  background: #000;
-  overflow-x: hidden;
+/* === Space backdrop for Galaxy canvas === */
+html,body{
+  margin:0;
+  background:#000;          /* deep-space black */
+  overflow-x:hidden;
 }
 
-/* Only target the galaxy background canvas */
-.galaxy-canvas {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  display: block;
-  background: transparent !important;
+canvas{                      /* Galaxy component renders here */
+  position:fixed;
+  inset:0;
+  pointer-events:none;      /* so clicks/scrolls go through */
+  z-index:0;
 }
