@@ -62,7 +62,7 @@ function App() {
 
   return (
     <div className="App">
-      <Galaxy transparent mouseInteraction />
+      <Galaxy mouseInteraction />
 
       <header className="masthead d-flex align-items-center">
         <div className="container text-center">
