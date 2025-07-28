@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/amy-portfolio/static/css/main.d616e3f8.css",
+    "main.js": "/amy-portfolio/static/js/main.ef13a4ad.js",
+    "index.html": "/amy-portfolio/index.html",
+    "main.d616e3f8.css.map": "/amy-portfolio/static/css/main.d616e3f8.css.map",
+    "main.ef13a4ad.js.map": "/amy-portfolio/static/js/main.ef13a4ad.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d616e3f8.css",
+    "static/js/main.ef13a4ad.js"
+  ]
+}
