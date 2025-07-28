@@ -1,7 +1,7 @@
 {
   "name": "amy-portfolio",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "https://amymariag.github.io/amy-portfolio",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
