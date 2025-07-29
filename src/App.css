@@ -245,39 +245,41 @@ footer.footer{text-align:center;padding:8rem 0;color:#bbb;font-size:1.3rem}
     font-size:.8rem;
   }
 }
-/* ╔════════  ULTRA-NARROW  (≤ 430 px — iPhone SE / Mini)  ════════════╗ */
+/* ═════ FINAL PHONE LAYOUT (≤ 430 px) ═════ */
 @media (max-width:430px){
 
-  /* —── NAV: force one line, auto-shrink —── */
+  /* --- NAV: two centred rows, neat gaps --- */
   #navButtons{
-    flex-wrap:nowrap;               /* stop wrapping            */
-    width:100%;
-    overflow:hidden;                /* no sideways scroll bar   */
+    display:flex;
+    flex-wrap:wrap;                /* ← allow 2 rows            */
+    justify-content:center;        /* centred rows              */
+    gap:.5rem .8rem;               /* row gap | column gap      */
+    overflow:visible;              /* no cut-off                */
   }
 
   .navButton{
-    flex:0 0 calc(100% / 7 - 4px);  /* EXACT 7 equal slots      */
-    margin:0 2px;
-    padding:.45rem 0;
-    font-size:3.5vw;                /* ~13-15 px on phones       */
+    flex:1 1 calc(45% - .8rem);    /* roughly 2 per row         */
+    min-width:130px;               /* keep text readable        */
+    font-size:14px;                /* slightly smaller label    */
+    padding:.55rem 0;
   }
 
-  /* —── CARDS: full-width single column, picture fits —── */
-  .cards-container{
-    grid-template-columns:1fr;      /* one card per row         */
-  }
+  /* --- CARDS: one column, images fit --- */
+  .cards-container{grid-template-columns:1fr;}
 
   .flip-card{
-    max-width:none;                 /* let card fill container  */
-    width:92vw;                     /* side gutters             */
-    aspect-ratio:1/1.2;             /* a tad taller than square */
+    width:90vw;
+    max-width:300px;
+    aspect-ratio:1/1.1;            /* a hair taller             */
+    margin:0 auto;
   }
 
   .flip-card-front img{
-    width:80%;
-    max-height:40%;                 /* logo/banner ≤ 40 % height */
+    width:85%;
+    max-height:45%;
+    height:auto;
     object-fit:contain;
-    margin-bottom:.6rem;
+    margin-bottom:.5rem;
   }
 
   .flip-card-back{
@@ -286,10 +288,5 @@ footer.footer{text-align:center;padding:8rem 0;color:#bbb;font-size:1.3rem}
     overflow-y:auto;
   }
 
-  .flip-card-back li{
-    font-size:4vw;                  /* scales with viewport     */
-    line-height:1.35;
-  }
+  .flip-card-back li{font-size:.9rem;}
 }
-
-/* ╚═══════════════════════════════════════════════════════════════════╝ */
