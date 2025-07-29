@@ -17,9 +17,9 @@ export default function App() {
 
   /* ---------- Data ---------- */
   const skills = [
-    { name: 'Java',       icon: '/assets/img/java-icon.png' },
-    { name: 'JavaScript', icon: '/assets/img/javascript-icon.png' },
-    { name: 'Python',     icon: '/assets/img/python-icon.jpeg' },
+    { name: 'Java',       icon: './assets/img/java-icon.png' },
+    { name: 'JavaScript', icon: './assets/img/javascript-icon.png' },
+    { name: 'Python',     icon: './assets/img/python-icon.jpeg' },
     { name: 'React',      icon: '/assets/img/react-icon.png' },
     { name: 'Node.js',    icon: '/assets/img/nodejs-icon.png' },
     { name: 'Spring',     icon: '/assets/img/spring-icon.png' },
