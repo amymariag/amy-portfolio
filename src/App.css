@@ -203,3 +203,45 @@ footer.footer{text-align:center;padding:8rem 0;color:#bbb;font-size:1.3rem}
   box-shadow:none;
   padding:0;
 }
+
+/* ═════════ MOBILE TWEAKS (≤ 600 px) ════════════════════════════════ */
+@media (max-width:600px){
+
+  /* ── NAV: wrap into two centred rows, no overflow ──────────────── */
+  #navButtons{
+    flex-wrap:wrap;                 /* allow second row           */
+    justify-content:center;         /* centre both rows           */
+    gap:.6rem .8rem;                /* row | col gap              */
+  }
+
+  .navButton{
+    flex:1 1 calc(45% - .8rem);     /* 2 per row, responsive      */
+    min-width:140px;                /* stop from shrinking too far */
+    padding:.6rem 0;
+    font-size:14px;                 /* slightly smaller label     */
+  }
+
+  /* ── CARDS: make grid accept smaller items ────────────────────── */
+  .cards-container{
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  }
+
+  .flip-card{
+    max-width:160px;                /* slimmer square             */
+    aspect-ratio:1/1;
+  }
+
+  /* front-side image scales cleanly inside the smaller card */
+  .flip-card-front img{
+    width:90%;
+    max-height:55%;                 /* never taller than half the card */
+    height:auto;
+    object-fit:contain;             /* no cropping                */
+    margin-bottom:.5rem;
+  }
+
+  /* bullet font a bit smaller so long text fits */
+  .flip-card-back li{
+    font-size:.8rem;
+  }
+}
