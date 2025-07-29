@@ -245,3 +245,51 @@ footer.footer{text-align:center;padding:8rem 0;color:#bbb;font-size:1.3rem}
     font-size:.8rem;
   }
 }
+/* ╔════════  ULTRA-NARROW  (≤ 430 px — iPhone SE / Mini)  ════════════╗ */
+@media (max-width:430px){
+
+  /* —── NAV: force one line, auto-shrink —── */
+  #navButtons{
+    flex-wrap:nowrap;               /* stop wrapping            */
+    width:100%;
+    overflow:hidden;                /* no sideways scroll bar   */
+  }
+
+  .navButton{
+    flex:0 0 calc(100% / 7 - 4px);  /* EXACT 7 equal slots      */
+    margin:0 2px;
+    padding:.45rem 0;
+    font-size:3.5vw;                /* ~13-15 px on phones       */
+  }
+
+  /* —── CARDS: full-width single column, picture fits —── */
+  .cards-container{
+    grid-template-columns:1fr;      /* one card per row         */
+  }
+
+  .flip-card{
+    max-width:none;                 /* let card fill container  */
+    width:92vw;                     /* side gutters             */
+    aspect-ratio:1/1.2;             /* a tad taller than square */
+  }
+
+  .flip-card-front img{
+    width:80%;
+    max-height:40%;                 /* logo/banner ≤ 40 % height */
+    object-fit:contain;
+    margin-bottom:.6rem;
+  }
+
+  .flip-card-back{
+    align-items:flex-start;
+    justify-content:flex-start;
+    overflow-y:auto;
+  }
+
+  .flip-card-back li{
+    font-size:4vw;                  /* scales with viewport     */
+    line-height:1.35;
+  }
+}
+
+/* ╚═══════════════════════════════════════════════════════════════════╝ */
