@@ -78,80 +78,88 @@ export default function App() {
     },
   ];
 
-  /* --- experiences with logo --- */
+  /* --- experiences (now full detail) --- */
   const experiences = [
     {
-      title: 'Tesla',
-      logo:  require('./assets/img/tesla.svg'),
-      role:  'Software Engineer Intern',
-      period:'May – Aug 2025',
-      place: 'Palo Alto • CA',
+      title:  'Tesla',
+      logo:   require('./assets/img/tesla-icon.png'),
+      role:   'Software Engineer Intern',
+      period: 'May 2025 – Aug 2025',
+      place:  'Palo Alto, California',
       bullets: [
-        'Built Angular + Spring-Boot signage portal (JWT auth).',
-        'Integrated AI API & MySQL for live insights + Excel export.',
-        'Supported AV for Tesla Shareholder Meeting.',
+        'Designed and built a responsive digital-signage portal (Angular.js + Spring Boot), creating Figma mock-ups and user flows for AV technicians worldwide.',
+        'Integrated Samsung MagicInfo APIs via Swagger, enabling real-time scheduling, playback control and health monitoring of displays.',
+        'Built interactive chart dashboards for AI-generated insights and one-click Excel export, streamlining trend analysis.',
       ],
     },
     {
-      title: 'Tesla',
-      logo:  require('./assets/img/tesla.svg'),
-      role:  'Software Engineer Intern',
-      period:'May – Aug 2024',
-      place: 'Palo Alto • CA',
+      title:  'Tesla',
+      logo:   require('./assets/img/tesla-icon.png'),
+      role:   'Software Engineer Intern',
+      period: 'May 2024 – Aug 2024',
+      place:  'Palo Alto, California',
       bullets: [
-        'Created AV health dashboards & CI/CD pipelines.',
-        'Optimised distributed Presto SQL queries.',
+        'Created internal UI dashboards for AV system health, cutting troubleshooting time for engineers.',
+        'Implemented CI/CD pipelines with GitHub Actions + Kubernetes, trimming manual deployment effort by 30 %.',
+        'Optimised distributed SQL queries in Presto (-20 % latency).',
+        'Configured and monitored live AV tools for the 2024 Annual Shareholder Meeting ensuring zero-downtime visuals.',
       ],
     },
     {
-      title: 'Siemens AG',
-      logo:  require('./assets/img/siemens.jpg'),
-      role:  'Software Engineer Intern',
-      period:'Feb 2023 – Apr 2024',
-      place: 'Orlando • FL',
+      title:  'Siemens AG',
+      logo:   require('./assets/img/siemens.jpg'),
+      role:   'Software Engineer Intern',
+      period: 'Feb 2023 – Apr 2024',
+      place:  'Orlando, Florida',
       bullets: [
-        'Automated compliance workflows (Python / JS / Power Automate).',
-        'Built Mendix + React apps (-60 % legacy process time).',
+        'Automated trade-compliance workflows (Python, JS, Power Automate) eliminating manual processing of 5 000+ monthly records (-90 % errors).',
+        'Developed Mendix apps with custom React components, boosting US Customs team efficiency by 60 %.',
+        'Ran requirement-gathering sessions with 50+ cross-functional stakeholders to clarify specs and unblock dev work.',
       ],
     },
     {
-      title: 'Florida Space Institute',
-      logo:  require('./assets/img/fsi.png'),
-      role:  'Software Engineer Intern',
-      period:'Jan – Mar 2023',
-      place: 'Orlando • FL',
+      title:  'Florida Space Institute',
+      logo:   require('./assets/img/fsi.png'),
+      role:   'Software Engineer Intern',
+      period: 'Jan 2023 – Mar 2023',
+      place:  'Orlando, Florida',
       bullets: [
-        'Programmed Arduino vacuum-sensor boards with CSV logging.',
-        'Built Matplotlib + PyQt visualisation tools (-35 % analysis time).',
+        'Programmed Arduino-based vacuum-sensor systems with CSV logging (-80 % manual collection).',
+        'Built Matplotlib + PyQt dashboards, cutting experiment-review time by 50 %.',
+        'Partnered with mechanical/electrical engineers to deliver integrated lab-research tooling.',
       ],
     },
   ];
 
   const activities = [
-    'SHPE – Member (2021-Present)',
-    'Google DSC – Member (2022-Present)',
-    'Theta Tau – Member (2022-Present)',
-    'SWE – Member (2022-Present)',
-    'IEEE UCF Chapter – Member',
-    'Hack@UCF – Member',
-    'Knights of the Turntables – DJ Lead',
+    'Society of Hispanic Professional Engineers (2022-Present)',
+    'Google Student Developer Club (2022-Present)',
+    'Theta Tau Professional Engineering Fraternity (2022-Present)',
+    'Society of Women Engineers (2022-Present)',
+    'IEEE UCF Chapter (2022-Present)',
+    'Knight Hacks – Member (2022-Present)',
+    'Knights of the Turntables – Lead Student DJ (2024-Present)',
     'UCF Symphony Orchestra – Violin',
   ];
 
   const portfolio = [
     {
       title: 'MindMove – Wellness App',
-     // img: require('./assets/img/mindmove.png'),
+      img: require('./assets/img/mindmove.png'),
       tech:'SwiftUI · HealthKit · WatchKit',
       desc:'iOS/watchOS app that triggers micro-activity breaks with haptics.',
     },
     {
       title: 'OceanOps – Multiplayer Battleship',
-      //img: require('./assets/img/oceanops.png'),
+      img: require('./assets/img/battleship.jpg'),
       tech:'Swift · WebSocket · Figma',
       desc:'Real-time shared-state battleship with rule engine and live chat.',
     },
   ];
+  /* logos ------------------------------------------------------- */
+const ucfLogo = require('./assets/img/ucf2.jpeg');
+const whsLogo = require('./assets/img/whs.jpeg');
+
 
   /* ---------- JSX ---------- */
   return (
@@ -186,8 +194,7 @@ export default function App() {
             <div className="info-card">
               <h2>About Me</h2>
               <p>
-                Hello, my name is Amy Gonzalez and I am a Senior Honors Computer Science student at the University of Central Florida Graduating in December 2025. 
-                I am passionate about software engineering, particularly in the areas of AI, full-stack, and iOS development.
+                Hello! I’m Amy González, a senior CS honors student at the University of Central Florida (graduating Dec 2025) and two-time Tesla Software Engineering Intern. I’m now looking for full-time new grad roles where I can contribute to teams looking to provide intuitive and creative front-end or iOS experiences. Nice to meet you!
               </p>
             </div>
           </section>
@@ -201,24 +208,26 @@ export default function App() {
                 {/* UCF */}
                 <FlipCard
                   front={<>
+                  <img src={ucfLogo} alt="UCF logo" className="card-logo" />
                     <h3>University of Central Florida</h3>
                     <p>Honors B.S. Computer Science</p>
-                    <p>Aug 2021 – Dec 2025</p>
+                    <p>Aug 2022 – Dec 2025</p>
                   </>}
                   back={<>
                     <p><strong>Relevant coursework</strong></p>
-                    <p>Data Structures · OOD · DB Systems · AI · ML · OS</p>
+                    <p>Algorithms & Data Structures · Object-Oriented Programming · Database Systems · AI · ML · Operating Systems</p>
                   </>}
                 />
 
                 {/* WHS */}
                 <FlipCard
                   front={<>
+                  <img src={whsLogo} alt="Wiesbaden High School logo" className="card-logo"/>
                     <h3>Wiesbaden High School</h3>
-                    <p>Hesse, Germany</p>
-                    <p>Graduated May 2021</p>
+                    <p>Wiesbaden, Germany</p>
+                    <p>August 2017 - May 2020</p>
                   </>}
-                  back={<p>DoDEA High-School Diploma.</p>}
+                  back={<p>DoDEA Europe High-School Diploma.</p>}
                 />
               </div>
             </div>
@@ -268,7 +277,7 @@ export default function App() {
           {/* ===== PORTFOLIO ===== */}
           <section id="portfolio" className="content-section">
             <div className="info-card">
-              <h2>Portfolio</h2>
+              <h2>Mini Portfolio</h2>
               <div className="cards-container">
                 {portfolio.map(p=>(
                   <FlipCard key={p.title}
@@ -288,28 +297,40 @@ export default function App() {
           {/* ===== ACTIVITIES ===== */}
           <section id="activities" className="content-section">
             <div className="info-card">
-              <h2>Activities & Accomplishments</h2>
+              <h2>Recent Activities</h2>
               <ul className="activities-list">
                 {activities.map(a=> <li key={a}>{a}</li>)}
               </ul>
             </div>
           </section>
 
-          {/* ===== CONTACT ===== */}
-          <section id="contact" className="content-section">
-            <div className="info-card">
-              <h2>Contact Me</h2>
-              <p>Email:&nbsp;
-                <a href="mailto:amymariag217@gmail.com">amymariag217@gmail.com</a>
-              </p>
-              <p>LinkedIn:&nbsp;
-                <a href="https://linkedin.com/in/amymariegonzalez" target="_blank"
-                   rel="noopener noreferrer">
-                  linkedin.com/in/amymariegonzalez
-                </a>
-              </p>
-            </div>
-          </section>
+{/* ----- CONTACT ----- */}
+<section id="contact" className="content-section">
+  <div className="info-card">
+    <h2>Contact Me</h2>
+
+    <p>Email:&nbsp;
+      <a href="mailto:amymariag217@gmail.com">
+        amymariag217@gmail.com
+      </a>
+    </p>
+
+    <p>LinkedIn:&nbsp;
+      <a href="https://linkedin.com/in/amymariegonzalez"
+         target="_blank" rel="noopener noreferrer">
+        linkedin.com/in/amymariegonzalez
+      </a>
+    </p>
+
+    <p>GitHub:&nbsp;
+      <a href="https://github.com/amymariag"
+         target="_blank" rel="noopener noreferrer">
+        github.com/amymariag
+      </a>
+    </p>
+  </div>
+</section>
+
         </main>
 
         <footer className="footer">
