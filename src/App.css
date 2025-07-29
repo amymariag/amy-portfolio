@@ -1,230 +1,165 @@
 /* src/App.css */
 @charset "UTF-8";
 
-/* ===================== Global Background & Fonts ===================== */
+/* -------- Global -------- */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #000;
+  background: #000;
   color: #fff;
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* ===================== Full-Screen Terminal Background ===================== */
+/* -------- Terminal Background -------- */
 .faulty-terminal-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  position: fixed !important;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
   overflow: hidden;
   z-index: 0;
 }
 
-/* ===================== App Wrapper ===================== */
-.App {
+/* -------- Centering Site -------- */
+.site-content {
   position: relative;
-  z-index: 1;               /* sit on top of the terminal */
-  background: transparent !important;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-/* ===================== Section Layout ===================== */
+/* -------- Header & Nav -------- */
+.masthead {
+  text-align: center;
+  margin: 2rem 0 1rem;
+}
+#navButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.navButton {
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  transition: background 0.3s;
+}
+.navButton:hover { background: #fff; color: #000; }
+
+/* -------- Sections & Cards -------- */
 .content-section {
   display: flex;
   justify-content: center;
-  padding: 4rem 1rem;
-  background: transparent;
+  padding: 3rem 1rem;
 }
-
-/* ===================== Inner Card ===================== */
 .info-card {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0,0,0,0.7);
   backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   border-radius: 12px;
   padding: 2rem;
   max-width: 800px;
   width: 100%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   text-align: center;
 }
-
-/* ===================== Card Rows ===================== */
 .education-container,
 .experience-container,
-.portfolio-container {
+.skills-container {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
   margin-top: 1.5rem;
 }
 
-/* ===================== Frosted-Glass Faces ===================== */
+/* ====== Floating Animation ====== */
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-10px); }
+}
+/* Apply to every card */
+.flip-card,
+.skill-card,
 .card-style {
-  flex: 1 1 200px;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ====== Card Style ====== */
+.card-style {
+  flex: 1 1 260px;
   max-width: 260px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255,255,255,0.15);
   backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255,255,255,0.2);
   border-radius: 16px;
   padding: 1rem;
   color: #fff;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s, box-shadow 0.3s;
 }
-
-.card-style img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-  border: 2px solid #fff;
-}
-
-.card-style h3,
-.card-style p {
-  margin: 0.5rem 0;
-}
-
 .card-style:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 25px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 25px rgba(255,255,255,0.3);
 }
 
-/* ===================== Flip-Card 3D Styles ===================== */
+/* ====== Flip-Card 3D ====== */
 .flip-card {
   perspective: 1000px;
   flex: 1 1 320px;
   max-width: 320px;
 }
-
 .flip-card-inner {
   position: relative;
   width: 100%;
   min-height: 280px;
-  transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
-  will-change: transform;
+  transition: transform 0.8s cubic-bezier(0.4,0.2,0.2,1);
   transform-style: preserve-3d;
 }
-
 .flip-card.flipped .flip-card-inner {
   transform: rotateY(180deg);
 }
-
 .flip-card-front,
 .flip-card-back {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  top: 0;
-  left: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  overflow: hidden;
 }
-
-.flip-card-back {
+.flip-card-back.card-style {
+  background: #000 !important;
   transform: rotateY(180deg);
 }
 
-.flip-card .card-style:hover {
-  transform: none !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+/* ====== Skill Cards ====== */
+.skill-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
 }
 
-/* ===================== Activities List (Vertical) ===================== */
+/* ====== Activities ====== */
 .activities-list {
   list-style: none;
   padding: 0;
-  margin: 1rem 0 0;
-  text-align: center;
 }
 .activities-list li {
-  display: block;
-  margin: 0.75rem 0;
+  margin: 0.5rem 0;
 }
 
-/* ===================== Navigation ===================== */
-#navButtons {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1rem 0;
-  flex-wrap: wrap;
+/* ====== Responsive ====== */
+@media (max-width:768px) {
+  .card-style { flex:1 1 180px; max-width:180px; }
+  .flip-card { flex:1 1 180px; max-width:180px; }
 }
-.navButton {
-  font-size: 1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: 0.5rem 1rem;
-  color: #fff;
-  border: 1px solid #fff;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-}
-.navButton:hover {
-  background: #fff;
-  color: #000;
-}
-
-/* ===================== Headings & Footer ===================== */
-h2 {
-  margin-bottom: 1rem;
-}
-footer.footer {
-  text-align: center;
-  padding: 2rem 0;
-  color: #bbb;
-  font-size: 0.9rem;
-}
-
-/* ===================== Responsive ===================== */
-@media (max-width: 768px) {
-  .info-card {
-    padding: 1.5rem;
-  }
-  .card-style {
-    flex: 1 1 140px;
-    max-width: 180px;
-  }
-  .flip-card {
-    flex: 1 1 180px;
-    max-width: 180px;
-  }
-  #navButtons {
-    gap: 1rem;
-  }
-}
-
-/* Center the page content */
-.site-content {
-  position: relative;
-  z-index: 1;            /* above the shader */
-  max-width: 1200px;     /* or whatever width you prefer */
-  margin: 0 auto;        /* horizontally center */
-  padding: 0 1rem;
-}
-
-/* Center your header text */
-.masthead {
-  text-align: center;
-  margin: 2rem 0 1rem;
-}
-
-/* Force card backs to solid black */
-.flip-card-back.card-style {
-  background: #000 !important;
-}
-
