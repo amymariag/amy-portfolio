@@ -1,21 +1,24 @@
 {
   "files": {
-    "main.css": "/amy-portfolio/static/css/main.de16ee07.css",
-    "main.js": "/amy-portfolio/static/js/main.b1a828a0.js",
+    "main.css": "/amy-portfolio/static/css/main.8e0974bc.css",
+    "main.js": "/amy-portfolio/static/js/main.bf5543f1.js",
     "static/media/macos-icon.png": "/amy-portfolio/static/media/macos-icon.6b4e1f5539afe597853e.png",
     "static/media/linux-icon.png": "/amy-portfolio/static/media/linux-icon.a4628033e13619be2847.png",
     "static/media/finalcut-icon.png": "/amy-portfolio/static/media/finalcut-icon.7e607e012ffd4b97a209.png",
     "static/media/pixelmator-icon.png": "/amy-portfolio/static/media/pixelmator-icon.23a7ef8865cd569a2e5b.png",
     "static/media/arduino-icon.png": "/amy-portfolio/static/media/arduino-icon.0085e3c739ff955f56e6.png",
     "static/media/sql-icon.png": "/amy-portfolio/static/media/sql-icon.ec09dabc8b7362ac2189.png",
+    "static/media/battleship.jpg": "/amy-portfolio/static/media/battleship.bb5f96d9c63cbf9cb204.jpg",
     "static/media/logicpro-icon.png": "/amy-portfolio/static/media/logicpro-icon.c2712a469315169a62a6.png",
     "static/media/unity-icon.png": "/amy-portfolio/static/media/unity-icon.138a8abacbfae03ab428.png",
     "static/media/css-icon.png": "/amy-portfolio/static/media/css-icon.101d771fe3ca679662f6.png",
+    "static/media/mindmove.png": "/amy-portfolio/static/media/mindmove.c4744e714444fb0cfa7e.png",
     "static/media/java-icon.png": "/amy-portfolio/static/media/java-icon.26fabfb6a8fae662f174.png",
     "static/media/siemens.jpg": "/amy-portfolio/static/media/siemens.d49efc5008917f7fbc24.jpg",
     "static/media/slack-icon.png": "/amy-portfolio/static/media/slack-icon.e5ccde6fe16c562b851f.png",
     "static/media/ios-icon.jpg": "/amy-portfolio/static/media/ios-icon.8877a08a9d02dbb1ba71.jpg",
     "static/media/aws-icon.png": "/amy-portfolio/static/media/aws-icon.316da603b6d42393e022.png",
+    "static/media/tesla-icon.png": "/amy-portfolio/static/media/tesla-icon.f7d87e3bef0f75e3a319.png",
     "static/media/fsi.png": "/amy-portfolio/static/media/fsi.7bff01ba5cdffd3a3a1f.png",
     "static/media/cpp-icon.png": "/amy-portfolio/static/media/cpp-icon.24a8f93854ab092f17a7.png",
     "static/media/html-icon.png": "/amy-portfolio/static/media/html-icon.a92a549a591f4acb527a.png",
@@ -24,14 +27,15 @@
     "static/media/ios-icon.png": "/amy-portfolio/static/media/ios-icon.a3623502b4fc084447c1.png",
     "static/media/docker-icon.png": "/amy-portfolio/static/media/docker-icon.c1f953a3ead577c05d04.png",
     "static/media/go-icon.png": "/amy-portfolio/static/media/go-icon.10000c8c9d54a6d9d887.png",
+    "static/media/ucf2.jpeg": "/amy-portfolio/static/media/ucf2.df7bc860b1a4e75d15ab.jpeg",
     "static/media/javascript-icon.png": "/amy-portfolio/static/media/javascript-icon.266bd9fb2663dcc057b4.png",
-    "static/media/tesla.svg": "/amy-portfolio/static/media/tesla.a2e6ec2f92532a8fb448cc63a1d2dbb6.svg",
+    "static/media/whs.jpeg": "/amy-portfolio/static/media/whs.242d33b5f6d439dbe930.jpeg",
     "index.html": "/amy-portfolio/index.html",
-    "main.de16ee07.css.map": "/amy-portfolio/static/css/main.de16ee07.css.map",
-    "main.b1a828a0.js.map": "/amy-portfolio/static/js/main.b1a828a0.js.map"
+    "main.8e0974bc.css.map": "/amy-portfolio/static/css/main.8e0974bc.css.map",
+    "main.bf5543f1.js.map": "/amy-portfolio/static/js/main.bf5543f1.js.map"
   },
   "entrypoints": [
-    "static/css/main.de16ee07.css",
-    "static/js/main.b1a828a0.js"
+    "static/css/main.8e0974bc.css",
+    "static/js/main.bf5543f1.js"
   ]
 }
