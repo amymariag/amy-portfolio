@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/amy-portfolio/static/css/main.8e0974bc.css",
+    "main.css": "/amy-portfolio/static/css/main.2fc049f5.css",
     "main.js": "/amy-portfolio/static/js/main.bf5543f1.js",
     "static/media/macos-icon.png": "/amy-portfolio/static/media/macos-icon.6b4e1f5539afe597853e.png",
     "static/media/linux-icon.png": "/amy-portfolio/static/media/linux-icon.a4628033e13619be2847.png",
@@ -31,11 +31,11 @@
     "static/media/javascript-icon.png": "/amy-portfolio/static/media/javascript-icon.266bd9fb2663dcc057b4.png",
     "static/media/whs.jpeg": "/amy-portfolio/static/media/whs.242d33b5f6d439dbe930.jpeg",
     "index.html": "/amy-portfolio/index.html",
-    "main.8e0974bc.css.map": "/amy-portfolio/static/css/main.8e0974bc.css.map",
+    "main.2fc049f5.css.map": "/amy-portfolio/static/css/main.2fc049f5.css.map",
     "main.bf5543f1.js.map": "/amy-portfolio/static/js/main.bf5543f1.js.map"
   },
   "entrypoints": [
-    "static/css/main.8e0974bc.css",
+    "static/css/main.2fc049f5.css",
     "static/js/main.bf5543f1.js"
   ]
 }
