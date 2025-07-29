@@ -1,0 +1,12 @@
+/* src/components/FaultyTerminal.css */
+.faulty-terminal-container {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+}
+
+

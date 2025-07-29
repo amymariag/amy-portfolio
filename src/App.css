@@ -12,10 +12,21 @@ html, body {
                Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+/* ===================== Full-Screen Terminal Background ===================== */
+.faulty-terminal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+}
+
 /* ===================== App Wrapper ===================== */
 .App {
   position: relative;
-  z-index: 1;
+  z-index: 1;               /* sit on top of the terminal */
   background: transparent !important;
 }
 
@@ -102,12 +113,10 @@ html, body {
   transform-style: preserve-3d;
 }
 
-/* Rotate inner container when flipped */
 .flip-card.flipped .flip-card-inner {
   transform: rotateY(180deg);
 }
 
-/* Ensure front/back faces' positioning, centering and overflow handling */
 .flip-card-front,
 .flip-card-back {
   position: absolute;
@@ -129,7 +138,6 @@ html, body {
   transform: rotateY(180deg);
 }
 
-/* Prevent hover styles on card-style elements within flip-cards */
 .flip-card .card-style:hover {
   transform: none !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
@@ -200,18 +208,23 @@ footer.footer {
   }
 }
 
-/* ===================== Galaxy Canvas ===================== */
-.galaxy-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  pointer-events: none;
-  background: transparent !important;
+/* Center the page content */
+.site-content {
+  position: relative;
+  z-index: 1;            /* above the shader */
+  max-width: 1200px;     /* or whatever width you prefer */
+  margin: 0 auto;        /* horizontally center */
+  padding: 0 1rem;
 }
-.masthead,
-.container {
-  background: transparent !important;
+
+/* Center your header text */
+.masthead {
+  text-align: center;
+  margin: 2rem 0 1rem;
 }
+
+/* Force card backs to solid black */
+.flip-card-back.card-style {
+  background: #000 !important;
+}
+
