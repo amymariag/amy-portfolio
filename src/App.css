@@ -39,7 +39,9 @@ html,body{
 .content-section{display:flex;justify-content:center;padding:3rem 1rem}
 .info-card{
   width:100%;max-width:900px;padding:2rem;
-  background:rgba(0,0,0,.7);backdrop-filter:blur(4px);
+  background:rgba(0,0,0,.7);
+  -webkit-backdrop-filter:blur(4px);
+  backdrop-filter:blur(4px);
   border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.5);
   text-align:center;
 }
@@ -111,6 +113,7 @@ footer.footer{text-align:center;padding:2rem 0;color:#bbb;font-size:1.3rem}
 #portfolio .info-card
 #experience .info-card{
   background: transparent;   /* no dark glass               */
+  -webkit-backdrop-filter: none; /* Safari support */
   backdrop-filter: none;     /* no blur                     */
   box-shadow: none;          /* no drop-shadow              */
   padding: 0;                /* optional – lets cards hug   */
