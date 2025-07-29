@@ -1,59 +1,104 @@
 @charset "UTF-8";
 
 /* ===== 1. GLOBAL ==================================================== */
-html,body{
-  margin:0;padding:0;height:100%;
-  background:#000;color:#fff;
-  font-family: 'Comic Neue', 'Comic Sans MS', sans-serif;
-
+html, body{
+  margin:0;
+  padding:0;
+  height:100%;
+  background:#000;
+  color:#fff;
+  font-family:'Comic Neue','Comic Sans MS',sans-serif;
 }
 
 /* ===== 2. BACKGROUND SHADER (ogl FaultyTerminal) ==================== */
 .faulty-terminal-container{
-  position:fixed;inset:0;
-  width:100vw;height:100vh;
-  overflow:hidden;z-index:0;
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+  z-index:0;
 }
 
 /* ===== 3. MAIN WRAPPER ============================================= */
 .site-content{
-  position:relative;z-index:1;
-  max-width:1200px;margin:0 auto;padding:0 1rem;
+  position:relative;
+  z-index:1;
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 1rem;
 }
 
 /* ===== 4. HEADER & NAV ============================================ */
 .masthead{margin:2rem 0;text-align:center}
+
+/* ===== NAV BAR (single row, no wrap, auto-shrink) =================== */
 #navButtons{
-  display:flex;justify-content:center;flex-wrap:wrap;
-  gap:1rem;margin-bottom:2rem;
+  display:flex;            /* lay out in a row           */
+  flex-wrap:nowrap;        /* never wrap to 2nd line      */
+  width:100%;              /* stretch full site width     */
+  justify-content:space-between; /* even spacing           */
+  gap:0;                   /* no extra gaps               */
 }
+
 .navButton{
-  padding:.5rem 1rem;border:1px solid #fff;border-radius:6px;
-  background:hsla(0,0%,100%,.1);color:#fff;
-  text-transform:uppercase;font-weight:600;cursor:pointer;
-  transition:background .3s,color .3s;
+  flex:1 1 0;              /* share the row equally        */
+  padding:.6rem 0;         /* slimmer so all fit           */
+  border:2px solid #fff;
+  border-radius:10px;
+  background:hsla(0,0%,100%,.12);
+  color:#fff;
+  text-align:center;
+  text-transform:uppercase;
+  font-weight:700;
+  font-size:clamp(12px,1.2vw,18px); /* auto-shrink on small screens */
+  text-decoration:none;
+  cursor:pointer;
+  transition:background .25s,color .25s;
 }
-.navButton:hover{background:#fff;color:#000}
+
+.navButton:hover{
+  background:#fff;
+  color:#000;
+}
 
 /* ===== 5. SECTIONS & GENERIC CARD ================================== */
 .content-section{display:flex;justify-content:center;padding:3rem 1rem}
+
 .info-card{
-  width:100%;max-width:900px;padding:2rem;
-  background:rgba(0,0,0,.7);
-  -webkit-backdrop-filter:blur(4px);
+  width:100%;
+  max-width:1600px;
+  padding:2rem;
+  margin-top:12rem;
+  background:rgba(0,0,0,.7);          /* dark glass – kept for Contact   */
+  -webkit-backdrop-filter:blur(1px);
   backdrop-filter:blur(4px);
-  border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.5);
+  border-radius:12px;
+  box-shadow:0 4px 20px rgba(0,0,0,.5);
   text-align:center;
 }
-.cards-container,.skills-container{
-  display:flex;flex-wrap:wrap;justify-content:center;
-  gap:2rem;margin-top:1.5rem;
+
+/* CARD CONTAINERS --------------------------------------------------- */
+.cards-container{
+  /* grid for Education / Experience / Portfolio */
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:2rem;
+  margin-top:.1rem;
+  justify-content:center;   /* ⇠ centres the whole track set */
+  justify-items:center; 
+}
+/* Skills container remains flex-wrap */
+.skills-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:2rem;
+  margin-top:.1rem;
 }
 
-/* pastel-purple links inside .info-card */
-.info-card a{
-  color:#c3b1e1;text-decoration:underline;transition:color .25s;
-}
+/* pastel-purple links */
+.info-card a{color:#c3b1e1;text-decoration:underline;transition:color .25s;}
 .info-card a:hover{color:#fff}
 
 /* ===== 6. FLOATING ANIMATION (shared) ============================== */
@@ -62,59 +107,99 @@ html,body{
   50%    {transform:translateY(-8px)}
 }
 
-/* ===== 7. FLIP-CARDS (Education & Experience, square) ============== */
+/* ===== 7. FLIP-CARDS ============================================== */
 .flip-card{
-  width:360px;height:360px;perspective:900px;
+  width:100%;                  /* fluid          */
+  max-width:300px;             /* cap            */
+  aspect-ratio:1/1;            /* always square  */
+  position:relative;
+  perspective:1600px;
+  margin-left:auto;
+  margin-right:auto;
   animation:float 6s ease-in-out infinite;
 }
 .flip-card-inner{
-  width:100%;height:100%;position:relative;
-  transform-style:preserve-3d;transition:transform .6s;
+  width:100%;
+  height:100%;
+  position:relative;
+  transform-style:preserve-3d;
+  transition:transform .6s;
 }
 .flip-card.flipped .flip-card-inner{transform:rotateY(180deg)}
-.flip-card-front,.flip-card-back{
-  position:absolute;inset:0;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;text-align:center;
+
+.flip-card-front,
+.flip-card-back{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
   backface-visibility:hidden;
-  background:rgba(0,0,0,.7);color:#fff;padding:1rem 1.65rem;
-  border-radius:12px;overflow:hidden;
+  background:rgba(0,0,0,.7);
+  color:#fff;
+  padding:1rem 1.25rem;
+  border-radius:12px;
+  overflow:hidden;
 }
-.flip-card-back{transform:rotateY(180deg)}
-.flip-card-front img{width:150px;height:150px;object-fit:contain;margin-bottom:1rem}
+
+.flip-card-front img{
+  width:80%;                  /* fluid logo / banner              */
+  max-height:45%;             /* never taller than half the card  */
+  height:auto;
+  object-fit:contain;
+  margin-bottom:.75rem;
+}
 .flip-card-front h3{margin:.25rem 0 .75rem;font-size:1.65rem}
 .flip-card-front p{margin:.25rem 0;line-height:1.35}
+
+.flip-card-back{
+  transform:rotateY(180deg);
+  align-items:flex-start;      /* start at top so scroll reaches 0 */
+  justify-content:flex-start;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+}
+/* thin scrollbar so users notice they can scroll */
+.flip-card-back::-webkit-scrollbar        {width:6px;}
+.flip-card-back::-webkit-scrollbar-track  {background:transparent;}
+.flip-card-back::-webkit-scrollbar-thumb  {background:#666;border-radius:3px;}
+
 .flip-card-back ul{padding-left:1.05rem;text-align:left}
-.flip-card-back li{margin-bottom:.45rem;font-size:1.65rem}
-
-/* ===== 8. SKILL-CARDS (now floating again) ========================= */
-.skill-card{
-  width:100px;text-align:center;
-  animation:float 6s ease-in-out infinite;
-}
-.skill-card img{
-  width:60px;height:60px;object-fit:contain;margin-bottom:.5rem;
+.flip-card-back li{
+  margin-bottom:.45rem;
+  font-size:clamp(.85rem,.8rem + .4vw,1.2rem);
+  line-height:1.35;
+  word-break:break-word;
 }
 
-/* ===== 9. ACTIVITIES LIST ========================================== */
-.activities-list{list-style:none;margin:0;padding:0}
+/* ===== 8. SKILL-CARDS (unchanged) ================================ */
+.skill-card{width:100px;text-align:center;animation:float 6s ease-in-out infinite;}
+.skill-card img{width:60px;height:60px;object-fit:contain;margin-bottom:.5rem;}
+
+/* ===== 9. ACTIVITIES LIST ======================================== */
+.activities-list{list-style:none;margin:0;padding:0;margin-bottom:5rem;}
 .activities-list li{margin:.5rem 0}
 
-/* ===== 10. FOOTER =================================================== */
-footer.footer{text-align:center;padding:2rem 0;color:#bbb;font-size:1.3rem}
+/* ===== 10. FOOTER ================================================ */
+footer.footer{text-align:center;padding:8rem 0;color:#bbb;font-size:1.3rem}
 
-/* ===== 11. RESPONSIVE ============================================== */
+/* ===== 11. RESPONSIVE ============================================ */
 @media(max-width:768px){
-  .flip-card{width:180px;height:180px}
+  .flip-card{max-width:180px}
   .skill-card{width:80px}
 }
-/* === REMOVE big blurred boxes behind Education & Experience ====== */
+
+/* ===== 12. TRANSPARENT CARDS FOR SELECT SECTIONS ================= */
 #education .info-card,
 #skills .info-card,
-#portfolio .info-card
+#portfolio .info-card,
 #experience .info-card{
-  background: transparent;   /* no dark glass               */
-  -webkit-backdrop-filter: none; /* Safari support */
-  backdrop-filter: none;     /* no blur                     */
-  box-shadow: none;          /* no drop-shadow              */
-  padding: 0;                /* optional – lets cards hug   */
+  background:transparent;
+  -webkit-backdrop-filter:none;
+  backdrop-filter:none;
+  box-shadow:none;
+  padding:0;
 }

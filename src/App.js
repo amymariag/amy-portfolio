@@ -32,6 +32,8 @@ export default function App() {
         { name: 'Go',         icon: require('./assets/img/go-icon.png') },
         { name: 'Swift',      icon: require('./assets/img/ios-icon.jpg') },
         { name: 'SQL',        icon: require('./assets/img/sql-icon.png') },
+        { name: 'HTML',          icon: require('./assets/img/html-icon.png') },
+        { name: 'CSS',           icon: require('./assets/img/css-icon.png') },
       ],
     },
     {
@@ -70,10 +72,9 @@ export default function App() {
       items: [
         { name: 'Final Cut Pro', icon: require('./assets/img/finalcut-icon.png') },
         { name: 'Logic Pro',     icon: require('./assets/img/logicpro-icon.png') },
+        { name: 'Figma',         icon: require('./assets/img/figma-icon.png') },
         { name: 'Pixelmator',    icon: require('./assets/img/pixelmator-icon.png') },
         { name: 'Office',        icon: require('./assets/img/office-icon.png') },
-        { name: 'HTML',          icon: require('./assets/img/html-icon.png') },
-        { name: 'CSS',           icon: require('./assets/img/css-icon.png') },
       ],
     },
   ];
