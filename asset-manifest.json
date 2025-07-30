@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/amy-portfolio/static/css/main.d48bed2e.css",
-    "main.js": "/amy-portfolio/static/js/main.ec3dc401.js",
+    "main.css": "/amy-portfolio/static/css/main.d59838cb.css",
+    "main.js": "/amy-portfolio/static/js/main.acfc31de.js",
     "static/media/macos-icon.png": "/amy-portfolio/static/media/macos-icon.6b4e1f5539afe597853e.png",
     "static/media/linux-icon.png": "/amy-portfolio/static/media/linux-icon.a4628033e13619be2847.png",
     "static/media/finalcut-icon.png": "/amy-portfolio/static/media/finalcut-icon.7e607e012ffd4b97a209.png",
@@ -31,11 +31,11 @@
     "static/media/javascript-icon.png": "/amy-portfolio/static/media/javascript-icon.266bd9fb2663dcc057b4.png",
     "static/media/whs.jpeg": "/amy-portfolio/static/media/whs.242d33b5f6d439dbe930.jpeg",
     "index.html": "/amy-portfolio/index.html",
-    "main.d48bed2e.css.map": "/amy-portfolio/static/css/main.d48bed2e.css.map",
-    "main.ec3dc401.js.map": "/amy-portfolio/static/js/main.ec3dc401.js.map"
+    "main.d59838cb.css.map": "/amy-portfolio/static/css/main.d59838cb.css.map",
+    "main.acfc31de.js.map": "/amy-portfolio/static/js/main.acfc31de.js.map"
   },
   "entrypoints": [
-    "static/css/main.d48bed2e.css",
-    "static/js/main.ec3dc401.js"
+    "static/css/main.d59838cb.css",
+    "static/js/main.acfc31de.js"
   ]
 }
