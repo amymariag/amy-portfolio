@@ -5,20 +5,17 @@ import './components/FaultyTerminal.css';
 
 export default function App() {
 
-  /* ---------- Smooth-scroll nav ---------- */
   useEffect(() => {
-    document.querySelectorAll('#navButtons a').forEach(btn =>
-      btn.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(btn.getAttribute('href'))
-          ?.scrollIntoView({ behavior: 'smooth' });
-      })
-    );
+    const btns = Array.from(document.querySelectorAll('#navButtons a'));
+    const onClick = e => {
+      e.preventDefault();
+      document.querySelector(e.currentTarget.getAttribute('href'))
+        ?.scrollIntoView({ behavior: 'smooth' });
+    };
+    btns.forEach(b => b.addEventListener('click', onClick));
+    return () => btns.forEach(b => b.removeEventListener('click', onClick));
   }, []);
 
-  /* ---------- DATA ---------- */
-
-  /* --- skills grouped by category --- */
   const skillGroups = [
     {
       title: 'Programming Languages',
@@ -32,8 +29,6 @@ export default function App() {
         { name: 'Go',         icon: require('./assets/img/go-icon.png') },
         { name: 'Swift',      icon: require('./assets/img/ios-icon.jpg') },
         { name: 'SQL',        icon: require('./assets/img/sql-icon.png') },
-        { name: 'HTML',          icon: require('./assets/img/html-icon.png') },
-        { name: 'CSS',           icon: require('./assets/img/css-icon.png') },
       ],
     },
     {
@@ -75,6 +70,15 @@ export default function App() {
         { name: 'Figma',         icon: require('./assets/img/figma-icon.png') },
         { name: 'Pixelmator',    icon: require('./assets/img/pixelmator-icon.png') },
         { name: 'Office',        icon: require('./assets/img/office-icon.png') },
+        { name: 'HTML',          icon: require('./assets/img/html-icon.png') },
+        { name: 'CSS',           icon: require('./assets/img/css-icon.png') },
+      ],
+    },
+    {
+      title: 'Languages',
+      items: [
+        { name: 'Spanish', icon: require('./assets/img/spanish-icon.png') },
+        { name: 'German',  icon: require('./assets/img/german-icon.png') },
       ],
     },
   ];
@@ -82,6 +86,7 @@ export default function App() {
   /* --- experiences (now full detail) --- */
   const experiences = [
     {
+      id:     'tesla-intern-2025',
       title:  'Tesla',
       logo:   require('./assets/img/tesla-icon.png'),
       role:   'Software Engineer Intern',
@@ -94,6 +99,7 @@ export default function App() {
       ],
     },
     {
+      id:     'tesla-intern-2024',
       title:  'Tesla',
       logo:   require('./assets/img/tesla-icon.png'),
       role:   'Software Engineer Intern',
@@ -107,6 +113,7 @@ export default function App() {
       ],
     },
     {
+      id:     'siemens-intern',
       title:  'Siemens AG',
       logo:   require('./assets/img/siemens.jpg'),
       role:   'Software Engineer Intern',
@@ -119,6 +126,7 @@ export default function App() {
       ],
     },
     {
+      id:     'fsi-intern',
       title:  'Florida Space Institute',
       logo:   require('./assets/img/fsi.png'),
       role:   'Software Engineer Intern',
@@ -145,24 +153,39 @@ export default function App() {
 
   const portfolio = [
     {
+      id:    'mindmove',
       title: 'MindMove – Wellness App',
-      img: require('./assets/img/mindmove.png'),
-      tech:'SwiftUI · HealthKit · WatchKit',
-      desc:'iOS/watchOS app that triggers micro-activity breaks with haptics.',
+      img:   require('./assets/img/mindmove.png'),
+      tech:  'SwiftUI , HealthKit , WatchKit',
+      desc:  'Created an iOS and Apple Watch app that encourages short movement breaks throughout the day by detecting sedentary patterns via HealthKit and CoreMotion.',
     },
     {
-      title: 'OceanOps – Multiplayer Battleship',
-      img: require('./assets/img/battleship.jpg'),
-      tech:'Swift · WebSocket · Figma',
-      desc:'Real-time shared-state battleship with rule engine and live chat.',
+      id:    'battleswift',
+      title: 'Battleswift – Multiplayer Battleship',
+      img:   require('./assets/img/battleship.jpg'),
+      tech:  'Swift , WebSocket , Figma',
+      desc:  'Built a multiplayer iOS Battleship replica in Swift with synchronized game state via WebSockets and UI flows designed in Figma.',
+    },
+    {
+      id:    'notion-mailbox',
+      title: 'Notion Mailbox Manager CLI',
+      img:   require('./assets/img/notion-icon.png'),
+      tech:  'Notion API, Node.js',
+      desc:  'Developed a Command Line Interface tool to interact with a Notion database, enabling mailbox-like message handling with secure API integration and allowing users to send, receive and delete "emails" in one place.',
+    },
+    {
+      id:    'price-is-wrong',
+      title: 'The Price is Wrong - "Price is Right" Style App',
+      img:   require('./assets/img/ebay-icon.png'),
+      tech:  'React , TypeScript , Node.js , eBay API , OpenAI API',
+      desc:  'Built a web application that challenges users to guess real-time prices of eBay items, enhancing user engagement through interactive design and live hint geration using the OpenAI API.',
     },
   ];
-  /* logos ------------------------------------------------------- */
-const ucfLogo = require('./assets/img/ucf2.jpeg');
-const whsLogo = require('./assets/img/whs.jpeg');
+
+  const ucfLogo = require('./assets/img/ucf2.jpeg');
+  const whsLogo = require('./assets/img/whs.jpeg');
 
 
-  /* ---------- JSX ---------- */
   return (
     <div className="App">
 
@@ -216,7 +239,7 @@ const whsLogo = require('./assets/img/whs.jpeg');
                   </>}
                   back={<>
                     <p><strong>Relevant coursework</strong></p>
-                    <p>Algorithms & Data Structures · Object-Oriented Programming · Database Systems · AI · ML · Operating Systems</p>
+                    <p>Algorithms & Data Structures , Object-Oriented Programming , Database Systems , AI , ML , Operating Systems</p>
                   </>}
                 />
 
@@ -239,8 +262,8 @@ const whsLogo = require('./assets/img/whs.jpeg');
             <div className="info-card">
               <h2>Experience</h2>
               <div className="cards-container">
-                {experiences.map(exp => (
-                  <FlipCard key={exp.title}
+                {experiences.map((exp, i) => (
+                  <FlipCard key={`${exp.title}-${exp.period}-${i}`}
                     front={<>
                       <img src={exp.logo} alt={exp.title} style={{width:60,marginBottom:8}}/>
                       <h3>{exp.title}</h3>
@@ -281,7 +304,7 @@ const whsLogo = require('./assets/img/whs.jpeg');
               <h2>Mini Portfolio</h2>
               <div className="cards-container">
                 {portfolio.map(p=>(
-                  <FlipCard key={p.title}
+                  <FlipCard key={p.id}
                     front={<>
                       <img src={p.img} alt={p.title}
                            style={{width:'80%',borderRadius:8,marginBottom:8}} />
@@ -308,7 +331,7 @@ const whsLogo = require('./assets/img/whs.jpeg');
 {/* ----- CONTACT ----- */}
 <section id="contact" className="content-section">
   <div className="info-card">
-    <h2>Contact Me</h2>
+    <h2>Contact Me!</h2>
 
     <p>Email:&nbsp;
       <a href="mailto:amymariag217@gmail.com">

@@ -1,6 +1,16 @@
 @charset "UTF-8";
 
-/* ===== 1. GLOBAL ==================================================== */
+/* ================================================================
+   1) GLOBAL
+================================================================ */
+:root{
+  --section-pad: clamp(72px, 12vh, 160px);   /* vertical padding for sections */
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
 html, body{
   margin:0;
   padding:0;
@@ -10,7 +20,9 @@ html, body{
   font-family:'Comic Neue','Comic Sans MS',sans-serif;
 }
 
-/* ===== 2. BACKGROUND SHADER (ogl FaultyTerminal) ==================== */
+/* ================================================================
+   2) BACKGROUND SHADER (fixed behind content)
+================================================================ */
 .faulty-terminal-container{
   position:fixed;
   inset:0;
@@ -20,7 +32,9 @@ html, body{
   z-index:0;
 }
 
-/* ===== 3. MAIN WRAPPER ============================================= */
+/* ================================================================
+   3) MAIN WRAPPER
+================================================================ */
 .site-content{
   position:relative;
   z-index:1;
@@ -29,21 +43,21 @@ html, body{
   padding:0 1rem;
 }
 
-/* ===== 4. HEADER & NAV ============================================ */
-.masthead{margin:2rem 0;text-align:center}
+/* ================================================================
+   4) HEADER & NAV
+================================================================ */
+.masthead{ margin:2rem 0; text-align:center; }
 
-/* ===== NAV BAR (single row, no wrap, auto-shrink) =================== */
 #navButtons{
-  display:flex;            /* lay out in a row           */
-  flex-wrap:nowrap;        /* never wrap to 2nd line      */
-  width:100%;              /* stretch full site width     */
-  justify-content:space-between; /* even spacing           */
-  gap:0;                   /* no extra gaps               */
+  display:flex;
+  flex-wrap:nowrap;              /* single row on desktop */
+  width:100%;
+  justify-content:space-between;
+  gap:0;
 }
-
 .navButton{
-  flex:1 1 0;              /* share the row equally        */
-  padding:.6rem 0;         /* slimmer so all fit           */
+  flex:1 1 0;
+  padding:.6rem 0;
   border:2px solid #fff;
   border-radius:10px;
   background:hsla(0,0%,100%,.12);
@@ -51,26 +65,35 @@ html, body{
   text-align:center;
   text-transform:uppercase;
   font-weight:700;
-  font-size:clamp(12px,1.2vw,18px); /* auto-shrink on small screens */
+  font-size:clamp(12px,1.2vw,18px);
   text-decoration:none;
   cursor:pointer;
   transition:background .25s,color .25s;
 }
+.navButton:hover{ background:#fff; color:#000; }
 
-.navButton:hover{
-  background:#fff;
-  color:#000;
+/* ================================================================
+   5) SECTIONS (no-peek layout) & CARDS
+================================================================ */
+.content-section{
+  min-height:100svh;             /* each section fills a screen */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:var(--section-pad) 1rem;
 }
-
-/* ===== 5. SECTIONS & GENERIC CARD ================================== */
-.content-section{display:flex;justify-content:center;padding:3rem 1rem}
+.content-section::after{         /* buffer so next section never peeks */
+  content:"";
+  display:block;
+  height:clamp(48px, 8vh, 120px);
+}
 
 .info-card{
   width:100%;
   max-width:1600px;
   padding:2rem;
-  margin-top:12rem;
-  background:rgba(0,0,0,.7);          /* dark glass – kept for Contact   */
+  margin:0 auto;
+  background:rgba(0,0,0,.7);     /* glass look (kept for Contact) */
   -webkit-backdrop-filter:blur(1px);
   backdrop-filter:blur(4px);
   border-radius:12px;
@@ -78,121 +101,7 @@ html, body{
   text-align:center;
 }
 
-/* CARD CONTAINERS --------------------------------------------------- */
-.cards-container{
-  /* grid for Education / Experience / Portfolio */
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:2rem;
-  margin-top:.1rem;
-  justify-content:center;   /* ⇠ centres the whole track set */
-  justify-items:center; 
-}
-/* Skills container remains flex-wrap */
-.skills-container{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:2rem;
-  margin-top:.1rem;
-}
-
-/* pastel-purple links */
-.info-card a{color:#c3b1e1;text-decoration:underline;transition:color .25s;}
-.info-card a:hover{color:#fff}
-
-/* ===== 6. FLOATING ANIMATION (shared) ============================== */
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%    {transform:translateY(-8px)}
-}
-
-/* ===== 7. FLIP-CARDS ============================================== */
-.flip-card{
-  width:100%;                  /* fluid          */
-  max-width:300px;             /* cap            */
-  aspect-ratio:1/1;            /* always square  */
-  position:relative;
-  perspective:1600px;
-  margin-left:auto;
-  margin-right:auto;
-  animation:float 6s ease-in-out infinite;
-}
-.flip-card-inner{
-  width:100%;
-  height:100%;
-  position:relative;
-  transform-style:preserve-3d;
-  transition:transform .6s;
-}
-.flip-card.flipped .flip-card-inner{transform:rotateY(180deg)}
-
-.flip-card-front,
-.flip-card-back{
-  position:absolute;
-  inset:0;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  backface-visibility:hidden;
-  background:rgba(0,0,0,.7);
-  color:#fff;
-  padding:1rem 1.25rem;
-  border-radius:12px;
-  overflow:hidden;
-}
-
-.flip-card-front img{
-  width:80%;                  /* fluid logo / banner              */
-  max-height:45%;             /* never taller than half the card  */
-  height:auto;
-  object-fit:contain;
-  margin-bottom:.75rem;
-}
-.flip-card-front h3{margin:.25rem 0 .75rem;font-size:1.65rem}
-.flip-card-front p{margin:.25rem 0;line-height:1.35}
-
-.flip-card-back{
-  transform:rotateY(180deg);
-  align-items:flex-start;      /* start at top so scroll reaches 0 */
-  justify-content:flex-start;
-  overflow-y:auto;
-  -webkit-overflow-scrolling:touch;
-  overscroll-behavior:contain;
-}
-/* thin scrollbar so users notice they can scroll */
-.flip-card-back::-webkit-scrollbar        {width:6px;}
-.flip-card-back::-webkit-scrollbar-track  {background:transparent;}
-.flip-card-back::-webkit-scrollbar-thumb  {background:#666;border-radius:3px;}
-
-.flip-card-back ul{padding-left:1.05rem;text-align:left}
-.flip-card-back li{
-  margin-bottom:.45rem;
-  font-size:clamp(.85rem,.8rem + .4vw,1.2rem);
-  line-height:1.35;
-  word-break:break-word;
-}
-
-/* ===== 8. SKILL-CARDS (unchanged) ================================ */
-.skill-card{width:100px;text-align:center;animation:float 6s ease-in-out infinite;}
-.skill-card img{width:60px;height:60px;object-fit:contain;margin-bottom:.5rem;}
-
-/* ===== 9. ACTIVITIES LIST ======================================== */
-.activities-list{list-style:none;margin:0;padding:0;margin-bottom:5rem;}
-.activities-list li{margin:.5rem 0}
-
-/* ===== 10. FOOTER ================================================ */
-footer.footer{text-align:center;padding:8rem 0;color:#bbb;font-size:1.3rem}
-
-/* ===== 11. RESPONSIVE ============================================ */
-@media(max-width:768px){
-  .flip-card{max-width:180px}
-  .skill-card{width:80px}
-}
-
-/* ===== 12. TRANSPARENT CARDS FOR SELECT SECTIONS ================= */
+/* Transparent look for these sections */
 #education .info-card,
 #skills .info-card,
 #portfolio .info-card,
@@ -204,89 +113,223 @@ footer.footer{text-align:center;padding:8rem 0;color:#bbb;font-size:1.3rem}
   padding:0;
 }
 
-/* ═════════ MOBILE TWEAKS (≤ 600 px) ════════════════════════════════ */
-@media (max-width:600px){
+/* Links inside cards */
+.info-card a{
+  color:#c3b1e1;
+  text-decoration:underline;
+  transition:color .25s;
+}
+.info-card a:hover{ color:#fff; }
 
-  /* ── NAV: wrap into two centred rows, no overflow ──────────────── */
+/* ================================================================
+   6) CARD CONTAINERS
+================================================================ */
+.cards-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:2rem;
+  margin-top:.1rem;
+  justify-content:center;
+  justify-items:center;
+}
+.skills-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:2rem;
+  margin-top:.1rem;
+}
+
+/* ================================================================
+   7) FLOAT ANIMATION
+================================================================ */
+@keyframes float{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+/* ================================================================
+   8) FLIP CARDS (images/titles always fit)
+================================================================ */
+.flip-card{
+  width:100%;
+  max-width:320px;
+  aspect-ratio:3 / 4;            /* taller so image + title + tech fit */
+  position:relative;
+  perspective:1600px;
+  margin-inline:auto;
+  animation:float 6s ease-in-out infinite;
+  isolation:isolate;
+  contain:layout paint;
+}
+.flip-card-inner{
+  width:100%;
+  height:100%;
+  position:relative;
+  transform-style:preserve-3d;
+  transition:transform .6s;
+}
+.flip-card.flipped .flip-card-inner{ transform:rotateY(180deg); }
+
+.flip-card-front,
+.flip-card-back{
+  position:absolute;
+  inset:0;
+  border-radius:12px;
+  overflow:hidden;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  background:rgba(0,0,0,.7);
+  color:#fff;
+}
+
+/* FRONT: media box + title + tech */
+.flip-card-front{
+  display:grid;
+  grid-template-rows:55% auto auto;
+  align-items:center;
+  justify-items:center;
+  gap:.35rem;
+  padding:1rem 1.25rem;
+}
+.flip-card-front img,
+.card-logo{
+  width:100%;
+  height:100%;
+  max-width:90%;
+  object-fit:contain;        /* logos/photos fully visible */
+  display:block;
+  margin:0 auto;
+}
+.flip-card-front h3{
+  margin:.25rem 0 0;
+  font-size:clamp(1rem, .9rem + .8vw, 1.4rem);
+  line-height:1.15;
+  text-wrap:balance;
+  text-align:center;
+}
+.flip-card-front p{
+  margin:.1rem 0 0;
+  font-size:clamp(.85rem, .75rem + .4vw, 1rem);
+  line-height:1.25;
+  text-align:center;
+}
+
+/* BACK: scroll if long */
+.flip-card-back{
+  transform:rotateY(180deg);
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:flex-start;
+  padding:1rem 1.25rem;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+}
+.flip-card-back ul{ padding-left:1.05rem; text-align:left; }
+.flip-card-back li{
+  margin-bottom:.45rem;
+  font-size:clamp(.85rem,.8rem + .4vw,1.2rem);
+  line-height:1.35;
+  word-break:break-word;
+}
+.flip-card-back::-webkit-scrollbar{ width:6px; }
+.flip-card-back::-webkit-scrollbar-track{ background:transparent; }
+.flip-card-back::-webkit-scrollbar-thumb{ background:#666; border-radius:3px; }
+
+/* ================================================================
+   9) SKILL CARDS
+================================================================ */
+.skill-card{ width:100px; text-align:center; animation:float 6s ease-in-out infinite; }
+.skill-card img{ width:60px; height:60px; object-fit:contain; margin-bottom:.5rem; }
+
+/* ================================================================
+   10) ACTIVITIES (auto-fit box) & FOOTER
+================================================================ */
+#activities .info-card{
+  width:min(900px, 90vw);
+  margin:0 auto;
+  padding:1.25rem 1.75rem;
+  background:rgba(0,0,0,.78);
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.6);
+  /* override any earlier grid/square assumptions */
+  aspect-ratio:auto;
+}
+#activities h2{ margin:0 0 .75rem; }
+#activities .activities-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+footer.footer{
+  text-align:center;
+  padding:0;
+  color:#bbb;
+  font-size:1.3rem;
+}
+
+/* ================================================================
+   11) RESPONSIVE
+================================================================ */
+@media (max-width: 900px){
+  .cards-container{ grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+}
+
+@media (max-width: 768px){
+  .flip-card{ max-width:240px; }
+  .skill-card{ width:80px; }
+}
+
+@media (max-width: 600px){
+  /* Nav wraps into two centered rows */
   #navButtons{
-    flex-wrap:wrap;                 /* allow second row           */
-    justify-content:center;         /* centre both rows           */
-    gap:.6rem .8rem;                /* row | col gap              */
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:.6rem .8rem;
   }
-
   .navButton{
-    flex:1 1 calc(45% - .8rem);     /* 2 per row, responsive      */
-    min-width:140px;                /* stop from shrinking too far */
+    flex:1 1 calc(45% - .8rem);
+    min-width:140px;
     padding:.6rem 0;
-    font-size:14px;                 /* slightly smaller label     */
+    font-size:14px;
   }
 
-  /* ── CARDS: make grid accept smaller items ────────────────────── */
   .cards-container{
     grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
   }
 
   .flip-card{
-    max-width:160px;                /* slimmer square             */
-    aspect-ratio:1/1;
+    max-width:260px;
+    aspect-ratio:2 / 3;           /* a bit taller on phones */
+  }
+  .flip-card-front{ grid-template-rows:52% auto auto; }
+
+  /* keep Activities on-screen if list grows long */
+  #activities .info-card{
+    width:min(92vw, 520px);
+    max-height:80svh;
+    display:grid;
+    grid-template-rows:auto 1fr;
+  }
+  #activities .activities-list{
+    overflow-y:auto;
+    padding-right:.25rem;
   }
 
-  /* front-side image scales cleanly inside the smaller card */
-  .flip-card-front img{
-    width:90%;
-    max-height:55%;                 /* never taller than half the card */
-    height:auto;
-    object-fit:contain;             /* no cropping                */
-    margin-bottom:.5rem;
-  }
-
-  /* bullet font a bit smaller so long text fits */
-  .flip-card-back li{
-    font-size:.8rem;
-  }
+  :root{ --section-pad:56px; }    /* tighter vertical padding on phones */
 }
-/* ═════ FINAL PHONE LAYOUT (≤ 430 px) ═════ */
-@media (max-width:430px){
 
-  /* --- NAV: two centred rows, neat gaps --- */
-  #navButtons{
-    display:flex;
-    flex-wrap:wrap;                /* ← allow 2 rows            */
-    justify-content:center;        /* centred rows              */
-    gap:.5rem .8rem;               /* row gap | column gap      */
-    overflow:visible;              /* no cut-off                */
-  }
-
-  .navButton{
-    flex:1 1 calc(45% - .8rem);    /* roughly 2 per row         */
-    min-width:130px;               /* keep text readable        */
-    font-size:14px;                /* slightly smaller label    */
-    padding:.55rem 0;
-  }
-
-  /* --- CARDS: one column, images fit --- */
-  .cards-container{grid-template-columns:1fr;}
-
+@media (max-width: 430px){
+  .cards-container{ grid-template-columns:1fr; }
   .flip-card{
     width:90vw;
     max-width:300px;
-    aspect-ratio:1/1.1;            /* a hair taller             */
     margin:0 auto;
   }
-
-  .flip-card-front img{
-    width:85%;
-    max-height:45%;
-    height:auto;
-    object-fit:contain;
-    margin-bottom:.5rem;
+  .navButton{
+    flex:1 1 calc(45% - .8rem);
+    min-width:130px;
+    padding:.55rem 0;
+    font-size:14px;
   }
-
-  .flip-card-back{
-    align-items:flex-start;
-    justify-content:flex-start;
-    overflow-y:auto;
-  }
-
-  .flip-card-back li{font-size:.9rem;}
 }
