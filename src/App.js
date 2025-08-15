@@ -109,10 +109,6 @@ export default function App() {
 'Built a scalable React Native mobile app integrating backend services, improving cross-platform performance.',
 'Developed server-side web apps with Node.js and architected REST APIs in JavaScript and Node.js.',
 'Built a single-page app with React.js, Redux, Express.js, Node.js REST APIs, and MongoDB.',
-'Created React.js and jQuery controllers to handle client events, improving UI responsiveness.',
-'Implemented CI/CD pipelines with Jenkins + AWS, reducing deployment errors by 40%.',
-'Optimized PostgreSQL and MongoDB queries (-25% response time) with indexing, tuning, and caching.',
-'Collaborated with cross-functional teams to translate specs into scalable, high-performance solutions.',
 
       ],
     },
