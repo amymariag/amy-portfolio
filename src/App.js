@@ -106,10 +106,14 @@ export default function App() {
       period: 'May 2024 – Aug 2024',
       place:  'Palo Alto, California',
       bullets: [
-        'Created internal UI dashboards for AV system health, cutting troubleshooting time for engineers.',
-        'Implemented CI/CD pipelines with GitHub Actions + Kubernetes, trimming manual deployment effort by 30 %.',
-        'Optimised distributed SQL queries in Presto (-20 % latency).',
-        'Configured and monitored live AV tools for the 2024 Annual Shareholder Meeting ensuring zero-downtime visuals.',
+'Built a scalable React Native mobile app integrating backend services, improving cross-platform performance.',
+'Developed server-side web apps with Node.js and architected REST APIs in JavaScript and Node.js.',
+'Built a single-page app with React.js, Redux, Express.js, Node.js REST APIs, and MongoDB.',
+'Created React.js and jQuery controllers to handle client events, improving UI responsiveness.',
+'Implemented CI/CD pipelines with Jenkins + AWS, reducing deployment errors by 40%.',
+'Optimized PostgreSQL and MongoDB queries (-25% response time) with indexing, tuning, and caching.',
+'Collaborated with cross-functional teams to translate specs into scalable, high-performance solutions.',
+
       ],
     },
     {
