@@ -9,8 +9,10 @@ export default function App() {
     const btns = Array.from(document.querySelectorAll('#navButtons a'));
     const onClick = e => {
       e.preventDefault();
-      document.querySelector(e.currentTarget.getAttribute('href'))
-        ?.scrollIntoView({ behavior: 'smooth' });
+      const target = document.querySelector(e.currentTarget.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     };
     btns.forEach(b => b.addEventListener('click', onClick));
     return () => btns.forEach(b => b.removeEventListener('click', onClick));
@@ -25,105 +27,60 @@ export default function App() {
         { name: 'TypeScript', icon: require('./assets/img/typescript-icon.png') },
         { name: 'Python',     icon: require('./assets/img/python-icon.jpeg') },
         { name: 'C',          icon: require('./assets/img/c-icon.png') },
-        { name: 'C++',        icon: require('./assets/img/cpp-icon.png') },
-        { name: 'Go',         icon: require('./assets/img/go-icon.png') },
         { name: 'Swift',      icon: require('./assets/img/ios-icon.jpg') },
         { name: 'SQL',        icon: require('./assets/img/sql-icon.png') },
+        { name: 'HTML/CSS',   icon: require('./assets/img/html-icon.png') },
       ],
     },
     {
-      title: 'Frameworks / Libraries',
+      title: 'Frameworks & Libraries',
       items: [
-        { name: 'React',      icon: require('./assets/img/react-icon.png') },
-        { name: 'Node.js',    icon: require('./assets/img/nodejs-icon.png') },
-        { name: 'Spring',     icon: require('./assets/img/spring-icon.png') },
-        { name: 'Unity',      icon: require('./assets/img/unity-icon.png') },
-        { name: 'Arduino',    icon: require('./assets/img/arduino-icon.png') },
+        { name: 'React',       icon: require('./assets/img/react-icon.png') },
+        { name: 'React Native', icon: require('./assets/img/react-icon.png') },
+        { name: 'Node.js',     icon: require('./assets/img/nodejs-icon.png') },
+        { name: 'SwiftUI',     icon: require('./assets/img/ios-icon.png') },
+        { name: 'Spring Boot', icon: require('./assets/img/spring-icon.png') },
       ],
     },
     {
       title: 'Dev Tools & Cloud',
       items: [
         { name: 'Docker',     icon: require('./assets/img/docker-icon.png') },
-        { name: 'Kubernetes', icon: require('./assets/img/kubernetes-icon.png') },
         { name: 'AWS',        icon: require('./assets/img/aws-icon.png') },
         { name: 'Git',        icon: require('./assets/img/git-icon.png') },
         { name: 'Slack',      icon: require('./assets/img/slack-icon.png') },
-        { name: 'Alteryx',    icon: require('./assets/img/alteryx-icon.png') },
-      ],
-    },
-    {
-      title: 'Operating Systems',
-      items: [
-        { name: 'macOS',      icon: require('./assets/img/macos-icon.png') },
-        { name: 'Linux',      icon: require('./assets/img/linux-icon.png') },
-        { name: 'Windows',    icon: require('./assets/img/windows-icon.png') },
-        { name: 'Android',    icon: require('./assets/img/android-icon.png') },
-        { name: 'iOS',        icon: require('./assets/img/ios-icon.png') },
-      ],
-    },
-    {
-      title: 'Design / Media',
-      items: [
+        { name: 'Jira',       icon: require('./assets/img/jira.png') },
+        { name: 'Figma',      icon: require('./assets/img/figma-icon.png') },
         { name: 'Final Cut Pro', icon: require('./assets/img/finalcut-icon.png') },
-        { name: 'Logic Pro',     icon: require('./assets/img/logicpro-icon.png') },
-        { name: 'Figma',         icon: require('./assets/img/figma-icon.png') },
-        { name: 'Pixelmator',    icon: require('./assets/img/pixelmator-icon.png') },
-        { name: 'Office',        icon: require('./assets/img/office-icon.png') },
-        { name: 'HTML',          icon: require('./assets/img/html-icon.png') },
-        { name: 'CSS',           icon: require('./assets/img/css-icon.png') },
+        { name: 'Logic Pro', icon: require('./assets/img/logicpro-icon.png') },
       ],
     },
     {
-      title: 'Languages',
+      title: 'Spoken Languages',
       items: [
-        { name: 'Spanish', icon: require('./assets/img/spanish-icon.png') },
-        { name: 'German',  icon: require('./assets/img/german-icon.png') },
+        { name: 'Spanish (Bilingual)', icon: require('./assets/img/spanish-icon.png') },
+        { name: 'German (C1)',  icon: require('./assets/img/german-icon.png') },
       ],
     },
   ];
 
-  /* --- experiences (now full detail) --- */
+  /* --- experiences (simplified - just company, dates, icon) --- */
   const experiences = [
     {
-      id:     'tesla-intern-2025',
+      id:     'tesla-2024-2025',
       title:  'Tesla',
       logo:   require('./assets/img/tesla-icon.png'),
       role:   'Software Engineer Intern',
-      period: 'May 2025 – Aug 2025',
+      period: 'May 2024 - Aug 2024, May 2025 - Aug 2025',
       place:  'Palo Alto, California',
-      bullets: [
-        'Designed and built a responsive digital-signage portal (Angular.js + Spring Boot), creating Figma mock-ups and user flows for AV technicians worldwide.',
-        'Integrated Samsung MagicInfo APIs via Swagger, enabling real-time scheduling, playback control and health monitoring of displays.',
-        'Built interactive chart dashboards for AI-generated insights and one-click Excel export, streamlining trend analysis.',
-      ],
-    },
-    {
-      id:     'tesla-intern-2024',
-      title:  'Tesla',
-      logo:   require('./assets/img/tesla-icon.png'),
-      role:   'Software Engineer Intern',
-      period: 'May 2024 – Aug 2024',
-      place:  'Palo Alto, California',
-      bullets: [
-'Built a scalable React Native mobile app integrating backend services, improving cross-platform performance.',
-'Developed server-side web apps with Node.js and architected REST APIs in JavaScript and Node.js.',
-'Built a single-page app with React.js, Redux, Express.js, Node.js REST APIs, and MongoDB.',
-
-      ],
     },
     {
       id:     'siemens-intern',
-      title:  'Siemens AG',
+      title:  'Siemens',
       logo:   require('./assets/img/siemens.jpg'),
       role:   'Software Engineer Intern',
       period: 'Feb 2023 – Apr 2024',
       place:  'Orlando, Florida',
-      bullets: [
-        'Automated trade-compliance workflows (Python, JS, Power Automate) eliminating manual processing of 5 000+ monthly records (-90 % errors).',
-        'Developed Mendix apps with custom React components, boosting US Customs team efficiency by 60 %.',
-        'Ran requirement-gathering sessions with 50+ cross-functional stakeholders to clarify specs and unblock dev work.',
-      ],
     },
     {
       id:     'fsi-intern',
@@ -132,58 +89,67 @@ export default function App() {
       role:   'Software Engineer Intern',
       period: 'Jan 2023 – Mar 2023',
       place:  'Orlando, Florida',
-      bullets: [
-        'Programmed Arduino-based vacuum-sensor systems with CSV logging (-80 % manual collection).',
-        'Built Matplotlib + PyQt dashboards, cutting experiment-review time by 50 %.',
-        'Partnered with mechanical/electrical engineers to deliver integrated lab-research tooling.',
-      ],
     },
   ];
 
   const activities = [
-    'Society of Hispanic Professional Engineers (2022-Present)',
-    'Google Student Developer Club (2022-Present)',
-    'Theta Tau Professional Engineering Fraternity (2022-Present)',
-    'Society of Women Engineers (2022-Present)',
-    'IEEE UCF Chapter (2022-Present)',
-    'Knight Hacks – Member (2022-Present)',
-    'Knights of the Turntables – Lead Student DJ (2024-Present)',
-    'UCF Symphony Orchestra – Violin',
+    'UCF Society of Women Engineers',
+    'Burnett Honors College',
+    'UCF Golf Club',
+    'Google Student Developer Club',
+    'UCF Society of Hispanic Professional Engineers',
+    'KnightHacks',
+    'Theta Tau Professional Engineering Club',
+    'UCF IEEE',
+    'UCF Symphony Orchestra - Violin',
+    'Knights of the Turntables - DJ',
   ];
 
   const portfolio = [
     {
+      id:    'digital-garden',
+      title: 'Digital Garden',
+      emoji: '🌸',
+      tech:  'React · Swift/SwiftUI · Node.js/Express · MongoDB',
+      desc:  'Building a web and iOS platform for sharing and discovering what friends are into. Features garden themed profile pages where users can cultivate their interests, with a React frontend, SwiftUI mobile app, and Node.js backend.',
+      date:  'February 2026',
+    },
+    {
+      id:    'campus-critters',
+      title: 'Campus Critters',
+      emoji: '🐊',
+      tech:  'Flutter · PostgreSQL · Azure · Google Maps API · Python/ML',
+      desc:  'Built a cross platform app for students to share wildlife sightings on campus, integrating Google Maps, Google Gemini API, cloud storage, and machine learning models for photo classification.',
+      date:  'December 2025',
+    },
+    {
+      id:    'vanity-vinyl',
+      title: 'Vanity Vinyl',
+      emoji: '💿',
+      tech:  'Swift/SwiftUI · Core Data · Firebase · VisionKit · Core Location',
+      desc:  'Built an iOS app for record collectors to scan albums, catalog collections with Core Data, and connect with nearby users via Firebase powered listings and chat.',
+      date:  'August 2025',
+    },
+    {
       id:    'mindmove',
-      title: 'MindMove – Wellness App',
+      title: 'MindMove',
       img:   require('./assets/img/mindmove.png'),
-      tech:  'SwiftUI , HealthKit , WatchKit',
+      tech:  'SwiftUI · HealthKit · WatchKit',
       desc:  'Created an iOS and Apple Watch app that encourages short movement breaks throughout the day by detecting sedentary patterns via HealthKit and CoreMotion.',
+      date:  'June 2025',
     },
     {
-      id:    'battleswift',
-      title: 'Battleswift – Multiplayer Battleship',
-      img:   require('./assets/img/battleship.jpg'),
-      tech:  'Swift , WebSocket , Figma',
-      desc:  'Built a multiplayer iOS Battleship replica in Swift with synchronized game state via WebSockets and UI flows designed in Figma.',
-    },
-    {
-      id:    'notion-mailbox',
-      title: 'Notion Mailbox Manager CLI',
-      img:   require('./assets/img/notion-icon.png'),
-      tech:  'Notion API, Node.js',
-      desc:  'Developed a Command Line Interface tool to interact with a Notion database, enabling mailbox-like message handling with secure API integration and allowing users to send, receive and delete "emails" in one place.',
-    },
-    {
-      id:    'price-is-wrong',
-      title: 'The Price is Wrong - "Price is Right" Style App',
-      img:   require('./assets/img/ebay-icon.png'),
-      tech:  'React , TypeScript , Node.js , eBay API , OpenAI API',
-      desc:  'Built a web application that challenges users to guess real-time prices of eBay items, enhancing user engagement through interactive design and live hint geration using the OpenAI API.',
+      id:    'ieee-speaker',
+      title: 'Bluetooth Speaker Project',
+      emoji: '🔊',
+      tech:  'C/C++ · Embedded Systems · Arduino · Bluetooth · Circuit Design',
+      desc:  'Developed a portable speaker system by assembling drivers, amplifier circuits, and enclosure design, while programming a microcontroller for wireless audio streaming and volume control.',
+      date:  'March 2025',
     },
   ];
 
-  const ucfLogo = require('./assets/img/ucf2.jpeg');
-  const whsLogo = require('./assets/img/whs.jpeg');
+  const ucfLogo = require('./assets/img/ucf_.jpg');
+  const whsLogo = require('./assets/img/whs.png');
 
 
   return (
@@ -200,28 +166,38 @@ export default function App() {
 
       {/* ---------- Site content ---------- */}
       <div className="site-content">
-        <header className="masthead">
-          <h1>Amy Marie Gonzalez</h1><hr />
-        </header>
+        
+        {/* ===== HERO SECTION (Name + Photos + About + Nav) ===== */}
+        <section id="hero" className="hero-section">
+          <div className="hero-header-container">
+            <div className="hero-image hero-image-left">
+              <img src={require('./assets/img/amy-grad-1.jpg')} alt="Amy Gonzalez UCF Graduation" />
+            </div>
+            <header className="masthead">
+              <h1>Amy Marie Gonzalez</h1>
+              <div className="subtitle">Software Engineer | Full-Stack & iOS Developer</div>
+            </header>
+            <div className="hero-image hero-image-right">
+              <img src={require('./assets/img/amy-grad-2.jpg')} alt="Amy Gonzalez UCF Graduation" />
+            </div>
+          </div>
 
-        {/* ---------- NAV ---------- */}
-        <nav id="navButtons">
-          {['About','Education','Experience','Skills','Portfolio','Activities','Contact'].map(id=>(
-            <a key={id} href={'#'+id.toLowerCase()} className="navButton">{id}</a>
-          ))}
-        </nav>
+          {/* About Me - Front and Center */}
+          <div className="hero-about">
+            <p>
+              Hello! I'm Amy Gonzalez, a Computer Science Graduate from the University of Central Florida and 2x Tesla Software Engineering Intern. I'm passionate about creating intuitive and creative software for fun and to cultivate new solutions to make life easier. Nice to meet you!
+            </p>
+          </div>
+
+          {/* Navigation - Prominent and Easy to See */}
+          <nav id="navButtons">
+            {['Education','Experience','Skills','Portfolio','Activities','Contact'].map(id=>(
+              <a key={id} href={'#'+id.toLowerCase()} className="navButton">{id}</a>
+            ))}
+          </nav>
+        </section>
 
         <main>
-
-          {/* ===== ABOUT ===== */}
-          <section id="about" className="content-section">
-            <div className="info-card">
-              <h2>About Me</h2>
-              <p>
-                Hello! I’m Amy González, a senior CS honors student at the University of Central Florida (graduating Dec 2025) and two-time Tesla Software Engineering Intern. I’m now looking for full-time new grad roles where I can contribute to teams looking to provide intuitive and creative front-end or iOS experiences. Nice to meet you!
-              </p>
-            </div>
-          </section>
 
           {/* ===== EDUCATION ===== */}
           <section id="education" className="content-section">
@@ -235,11 +211,12 @@ export default function App() {
                   <img src={ucfLogo} alt="UCF logo" className="card-logo" />
                     <h3>University of Central Florida</h3>
                     <p>Honors B.S. Computer Science</p>
+                    <p>GPA: 3.5</p>
                     <p>Aug 2022 – Dec 2025</p>
                   </>}
                   back={<>
-                    <p><strong>Relevant coursework</strong></p>
-                    <p>Algorithms & Data Structures , Object-Oriented Programming , Database Systems , AI , ML , Operating Systems</p>
+                    <p><strong>Relevant Coursework</strong></p>
+                    <p>Data Structures • Object-Oriented Design • Database Systems • Artificial Intelligence • Algorithms for Machine Learning • Discrete Structures • Operating Systems • System Software • Mobile Software Development</p>
                   </>}
                 />
 
@@ -251,7 +228,7 @@ export default function App() {
                     <p>Wiesbaden, Germany</p>
                     <p>August 2017 - May 2020</p>
                   </>}
-                  back={<p>DoDEA Europe High-School Diploma.</p>}
+                  back={<p>DoDEA Europe High School Diploma</p>}
                 />
               </div>
             </div>
@@ -263,16 +240,13 @@ export default function App() {
               <h2>Experience</h2>
               <div className="cards-container">
                 {experiences.map((exp, i) => (
-                  <FlipCard key={`${exp.title}-${exp.period}-${i}`}
-                    front={<>
-                      <img src={exp.logo} alt={exp.title} style={{width:60,marginBottom:8}}/>
-                      <h3>{exp.title}</h3>
-                      <p>{exp.role}</p>
-                      <p>{exp.period}</p>
-                      <p>{exp.place}</p>
-                    </>}
-                    back={<ul>{exp.bullets.map(b=><li key={b}>{b}</li>)}</ul>}
-                  />
+                  <div key={`${exp.title}-${exp.period}-${i}`} className="experience-card">
+                    <img src={exp.logo} alt={exp.title} className="exp-logo"/>
+                    <h3>{exp.title}</h3>
+                    <p className="role">{exp.role}</p>
+                    <p className="period">{exp.period}</p>
+                    <p className="place">{exp.place}</p>
+                  </div>
                 ))}
               </div>
             </div>
@@ -301,15 +275,20 @@ export default function App() {
           {/* ===== PORTFOLIO ===== */}
           <section id="portfolio" className="content-section">
             <div className="info-card">
-              <h2>Mini Portfolio</h2>
+              <h2>Portfolio</h2>
               <div className="cards-container">
                 {portfolio.map(p=>(
                   <FlipCard key={p.id}
                     front={<>
-                      <img src={p.img} alt={p.title}
-                           style={{width:'80%',borderRadius:8,marginBottom:8}} />
+                      {p.emoji ? (
+                        <div className="emoji-display">{p.emoji}</div>
+                      ) : (
+                        <img src={p.img} alt={p.title}
+                             style={{width:'100%',borderRadius:8,marginBottom:8}} />
+                      )}
                       <h3>{p.title}</h3>
-                      <p>{p.tech}</p>
+                      <p className="tech-stack">{p.tech}</p>
+                      <p className="project-date">{p.date}</p>
                     </>}
                     back={<p>{p.desc}</p>}
                   />
@@ -321,39 +300,45 @@ export default function App() {
           {/* ===== ACTIVITIES ===== */}
           <section id="activities" className="content-section">
             <div className="info-card">
-              <h2>Recent Activities</h2>
+              <h2>Activities & Involvement</h2>
               <ul className="activities-list">
                 {activities.map(a=> <li key={a}>{a}</li>)}
               </ul>
             </div>
           </section>
 
-{/* ----- CONTACT ----- */}
-<section id="contact" className="content-section">
-  <div className="info-card">
-    <h2>Contact Me!</h2>
+          {/* ----- CONTACT ----- */}
+          <section id="contact" className="content-section">
+            <div className="info-card">
+              <h2>Contact Me!</h2>
 
-    <p>Email:&nbsp;
-      <a href="mailto:amymariag217@gmail.com">
-        amymariag217@gmail.com
-      </a>
-    </p>
+              <p>📧&nbsp;
+                <a href="mailto:amymariag217@gmail.com">
+                  amymariag217@gmail.com
+                </a>
+              </p>
 
-    <p>LinkedIn:&nbsp;
-      <a href="https://linkedin.com/in/amymariegonzalez"
-         target="_blank" rel="noopener noreferrer">
-        linkedin.com/in/amymariegonzalez
-      </a>
-    </p>
+              <p>📱&nbsp;
+                <a href="tel:+18635213869">
+                  863-521-3869
+                </a>
+              </p>
 
-    <p>GitHub:&nbsp;
-      <a href="https://github.com/amymariag"
-         target="_blank" rel="noopener noreferrer">
-        github.com/amymariag
-      </a>
-    </p>
-  </div>
-</section>
+              <p>💼&nbsp;
+                <a href="https://linkedin.com/in/amymariegonzalez"
+                   target="_blank" rel="noopener noreferrer">
+                  linkedin.com/in/amymariegonzalez
+                </a>
+              </p>
+
+              <p>💻&nbsp;
+                <a href="https://github.com/amymariag"
+                   target="_blank" rel="noopener noreferrer">
+                  github.com/amymariag
+                </a>
+              </p>
+            </div>
+          </section>
 
         </main>
 
@@ -365,7 +350,7 @@ export default function App() {
   );
 }
 
-/* ---------- Tiny flip-card helper component ---------- */
+/* ---------- Flip-card helper component ---------- */
 function FlipCard({ front, back }) {
   return (
     <div className="flip-card"

@@ -4,7 +4,9 @@
    1) GLOBAL
 ================================================================ */
 :root{
-  --section-pad: clamp(72px, 12vh, 160px);   /* vertical padding for sections */
+  --section-pad: clamp(72px, 12vh, 160px);
+  --card-glow: rgba(195, 177, 225, 0.4);
+  --card-glow-hover: rgba(195, 177, 225, 0.7);
 }
 
 *,
@@ -30,6 +32,7 @@ html, body{
   height:100vh;
   overflow:hidden;
   z-index:0;
+  will-change: transform;
 }
 
 /* ================================================================
@@ -38,51 +41,185 @@ html, body{
 .site-content{
   position:relative;
   z-index:1;
-  max-width:1200px;
+  max-width:1400px;
   margin:0 auto;
   padding:0 1rem;
 }
 
 /* ================================================================
-   4) HEADER & NAV
+   4) HEADER & NAV (HERO SECTION)
 ================================================================ */
-.masthead{ margin:2rem 0; text-align:center; }
+/* Hero Section - Full screen with name, about, and nav */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  gap: 2rem;
+}
 
+/* Hero Header Container - Photos on either side of name */
+.hero-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: nowrap;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero-image {
+  flex-shrink: 0;
+}
+
+.hero-image img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 3px solid rgba(195, 177, 225, 0.5);
+  box-shadow: 0 10px 40px rgba(195, 177, 225, 0.3);
+  transition: all 0.3s ease;
+}
+
+.hero-image img:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(195, 177, 225, 0.8);
+  box-shadow: 0 15px 50px rgba(195, 177, 225, 0.5);
+}
+
+/* Subtle tilt effect for photos */
+.hero-image-left img {
+  transform: rotate(-2deg);
+}
+
+.hero-image-right img {
+  transform: rotate(2deg);
+}
+
+.hero-image-left img:hover {
+  transform: rotate(0deg) translateY(-8px) scale(1.02);
+}
+
+.hero-image-right img:hover {
+  transform: rotate(0deg) translateY(-8px) scale(1.02);
+}
+
+.masthead{ 
+  margin: 0;
+  text-align: center;
+  flex: 0 1 auto;
+}
+
+.masthead h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  margin: 0 0 1rem 0;
+  background: linear-gradient(135deg, #fff 0%, #C3B1E1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  color: #C3B1E1;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  opacity: 0.9;
+}
+
+/* Hero About - Prominent and readable */
+.hero-about {
+  max-width: 800px;
+  margin: 1rem auto 2rem;
+  padding: 2rem 2.5rem;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid rgba(195, 177, 225, 0.4);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.hero-about p {
+  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+  line-height: 1.7;
+  margin: 0;
+  color: #fff;
+  text-align: center;
+}
+
+/* Navigation - Bigger and more prominent */
 #navButtons{
-  display:flex;
-  flex-wrap:nowrap;              /* single row on desktop */
-  width:100%;
-  justify-content:space-between;
-  gap:0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 900px;
+  margin-top: 1rem;
 }
+
 .navButton{
-  flex:1 1 0;
-  padding:.6rem 0;
-  border:2px solid #fff;
-  border-radius:10px;
-  background:hsla(0,0%,100%,.12);
-  color:#fff;
-  text-align:center;
-  text-transform:uppercase;
-  font-weight:700;
-  font-size:clamp(12px,1.2vw,18px);
-  text-decoration:none;
-  cursor:pointer;
-  transition:background .25s,color .25s;
+  flex: 0 1 auto;
+  min-width: 140px;
+  padding: 1rem 2rem;
+  border: 2px solid #fff;
+  border-radius: 12px;
+  background: hsla(0,0%,100%,.15);
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: clamp(14px, 1.5vw, 18px);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
-.navButton:hover{ background:#fff; color:#000; }
+
+.navButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.navButton:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.navButton:hover{ 
+  background: #fff; 
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(195, 177, 225, 0.5);
+}
 
 /* ================================================================
-   5) SECTIONS (no-peek layout) & CARDS
+   5) SECTIONS & CARDS
 ================================================================ */
 .content-section{
-  min-height:100svh;             /* each section fills a screen */
+  min-height:100svh;
   display:flex;
   align-items:center;
   justify-content:center;
   padding:var(--section-pad) 1rem;
 }
-.content-section::after{         /* buffer so next section never peeks */
+
+.content-section::after{
   content:"";
   display:block;
   height:clamp(48px, 8vh, 120px);
@@ -91,14 +228,24 @@ html, body{
 .info-card{
   width:100%;
   max-width:1600px;
-  padding:2rem;
+  padding:2.5rem;
   margin:0 auto;
-  background:rgba(0,0,0,.7);     /* glass look (kept for Contact) */
-  -webkit-backdrop-filter:blur(1px);
-  backdrop-filter:blur(4px);
-  border-radius:12px;
-  box-shadow:0 4px 20px rgba(0,0,0,.5);
+  background:rgba(0,0,0,.7);
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(8px);
+  border-radius:16px;
+  box-shadow:0 8px 32px rgba(0,0,0,.6);
   text-align:center;
+  border: 1px solid rgba(195, 177, 225, 0.2);
+}
+
+.info-card h2 {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #fff 0%, #C3B1E1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Transparent look for these sections */
@@ -111,6 +258,7 @@ html, body{
   backdrop-filter:none;
   box-shadow:none;
   padding:0;
+  border: none;
 }
 
 /* Links inside cards */
@@ -118,98 +266,166 @@ html, body{
   color:#c3b1e1;
   text-decoration:underline;
   transition:color .25s;
+  font-size: 1.1rem;
 }
-.info-card a:hover{ color:#fff; }
+.info-card a:hover{ 
+  color:#fff; 
+  text-shadow: 0 0 8px rgba(195, 177, 225, 0.6);
+}
 
 /* ================================================================
    6) CARD CONTAINERS
 ================================================================ */
 .cards-container{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:2rem;
-  margin-top:.1rem;
+  grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
+  gap:3rem;
+  margin-top:2rem;
   justify-content:center;
   justify-items:center;
 }
+
 .skills-container{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:2rem;
-  margin-top:.1rem;
+  gap:2.5rem;
+  margin-top:1.5rem;
 }
 
 /* ================================================================
-   7) FLOAT ANIMATION
+   7) ENHANCED ANIMATIONS
 ================================================================ */
-@keyframes float{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+@keyframes float{ 
+  0%, 100% { transform: translateY(0); } 
+  50% { transform: translateY(-12px); } 
+}
+
+@keyframes glow-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px var(--card-glow),
+                0 0 40px var(--card-glow),
+                0 0 60px var(--card-glow);
+  }
+  50% { 
+    box-shadow: 0 0 30px var(--card-glow-hover),
+                0 0 60px var(--card-glow-hover),
+                0 0 90px var(--card-glow-hover);
+  }
+}
 
 /* ================================================================
-   8) FLIP CARDS (images/titles always fit)
+   8) FLIP CARDS (BIGGER & MORE EYE-CATCHING)
 ================================================================ */
 .flip-card{
   width:100%;
-  max-width:320px;
-  aspect-ratio:3 / 4;            /* taller so image + title + tech fit */
+  max-width:420px;
+  aspect-ratio:3 / 4;
   position:relative;
-  perspective:1600px;
+  perspective:2000px;
   margin-inline:auto;
-  animation:float 6s ease-in-out infinite;
+  animation:float 7s ease-in-out infinite;
   isolation:isolate;
   contain:layout paint;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
+
+.flip-card:hover {
+  transform: scale(1.05);
+  animation-play-state: paused;
+}
+
 .flip-card-inner{
   width:100%;
   height:100%;
   position:relative;
   transform-style:preserve-3d;
-  transition:transform .6s;
+  transition:transform 0.7s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
-.flip-card.flipped .flip-card-inner{ transform:rotateY(180deg); }
+
+.flip-card.flipped .flip-card-inner{ 
+  transform:rotateY(180deg); 
+}
 
 .flip-card-front,
 .flip-card-back{
   position:absolute;
   inset:0;
-  border-radius:12px;
+  border-radius:16px;
   overflow:hidden;
   backface-visibility:hidden;
   -webkit-backface-visibility:hidden;
-  background:rgba(0,0,0,.7);
+  background:rgba(0,0,0,.85);
+  border: 2px solid rgba(195, 177, 225, 0.3);
   color:#fff;
+  transition: border-color 0.3s ease;
+}
+
+.flip-card:hover .flip-card-front,
+.flip-card:hover .flip-card-back {
+  border-color: rgba(195, 177, 225, 0.6);
+  box-shadow: 0 0 30px var(--card-glow);
 }
 
 /* FRONT: media box + title + tech */
 .flip-card-front{
   display:grid;
-  grid-template-rows:55% auto auto;
+  grid-template-rows:55% auto auto auto;
   align-items:center;
   justify-items:center;
-  gap:.35rem;
-  padding:1rem 1.25rem;
+  gap:.5rem;
+  padding:1.5rem 1.5rem;
 }
+
+.emoji-display {
+  font-size: 8rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5));
+}
+
 .flip-card-front img,
 .card-logo{
   width:100%;
   height:100%;
-  max-width:90%;
-  object-fit:contain;        /* logos/photos fully visible */
+  max-width:95%;
+  object-fit:contain;
   display:block;
   margin:0 auto;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
 }
+
 .flip-card-front h3{
-  margin:.25rem 0 0;
-  font-size:clamp(1rem, .9rem + .8vw, 1.4rem);
-  line-height:1.15;
+  margin:.3rem 0 0;
+  font-size:clamp(1.2rem, 1rem + 1vw, 1.8rem);
+  line-height:1.2;
   text-wrap:balance;
   text-align:center;
+  font-weight: 700;
 }
+
 .flip-card-front p{
-  margin:.1rem 0 0;
-  font-size:clamp(.85rem, .75rem + .4vw, 1rem);
-  line-height:1.25;
+  margin:.15rem 0 0;
+  font-size:clamp(.95rem, .85rem + .5vw, 1.15rem);
+  line-height:1.3;
   text-align:center;
+  opacity: 0.9;
+}
+
+.flip-card-front .tech-stack {
+  color: #C3B1E1;
+  font-weight: 500;
+}
+
+.flip-card-front .project-date {
+  font-size: clamp(.85rem, .75rem + .4vw, 1rem);
+  opacity: 0.7;
+  font-style: italic;
 }
 
 /* BACK: scroll if long */
@@ -219,117 +435,389 @@ html, body{
   flex-direction:column;
   align-items:flex-start;
   justify-content:flex-start;
-  padding:1rem 1.25rem;
+  padding:2rem 1.75rem;
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
   overscroll-behavior:contain;
 }
-.flip-card-back ul{ padding-left:1.05rem; text-align:left; }
+
+.flip-card-back p {
+  font-size:clamp(1rem, .9rem + .5vw, 1.3rem);
+  line-height:1.5;
+  text-align: left;
+  margin: 0;
+}
+
+.flip-card-back ul{ 
+  padding-left:1.2rem; 
+  text-align:left; 
+  margin: 0;
+}
+
 .flip-card-back li{
-  margin-bottom:.45rem;
-  font-size:clamp(.85rem,.8rem + .4vw,1.2rem);
-  line-height:1.35;
+  margin-bottom:.6rem;
+  font-size:clamp(.95rem,.85rem + .5vw,1.25rem);
+  line-height:1.4;
   word-break:break-word;
 }
-.flip-card-back::-webkit-scrollbar{ width:6px; }
-.flip-card-back::-webkit-scrollbar-track{ background:transparent; }
-.flip-card-back::-webkit-scrollbar-thumb{ background:#666; border-radius:3px; }
+
+.flip-card-back::-webkit-scrollbar{ width:8px; }
+.flip-card-back::-webkit-scrollbar-track{ background:rgba(255,255,255,0.1); }
+.flip-card-back::-webkit-scrollbar-thumb{ 
+  background:#C3B1E1; 
+  border-radius:4px; 
+}
 
 /* ================================================================
-   9) SKILL CARDS
+   9) EXPERIENCE CARDS (NON-FLIPPING, CLEAN DISPLAY)
 ================================================================ */
-.skill-card{ width:100px; text-align:center; animation:float 6s ease-in-out infinite; }
-.skill-card img{ width:60px; height:60px; object-fit:contain; margin-bottom:.5rem; }
+.experience-card {
+  width:100%;
+  max-width:420px;
+  padding: 2rem;
+  background:rgba(0,0,0,.85);
+  border: 2px solid rgba(195, 177, 225, 0.3);
+  border-radius:16px;
+  text-align: center;
+  animation:float 7s ease-in-out infinite;
+  transition: all 0.3s ease;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.experience-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  border-color: rgba(195, 177, 225, 0.6);
+  box-shadow: 0 0 30px var(--card-glow);
+  animation-play-state: paused;
+}
+
+.experience-card .exp-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+  margin-bottom: 0.5rem;
+}
+
+.experience-card h3 {
+  margin: 0;
+  font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff 0%, #C3B1E1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.experience-card .role {
+  font-size: clamp(1rem, .9rem + .5vw, 1.3rem);
+  font-weight: 600;
+  color: #C3B1E1;
+  margin: 0;
+}
+
+.experience-card .period {
+  font-size: clamp(.95rem, .85rem + .4vw, 1.15rem);
+  opacity: 0.8;
+  margin: 0;
+}
+
+.experience-card .place {
+  font-size: clamp(.9rem, .8rem + .4vw, 1.1rem);
+  opacity: 0.7;
+  font-style: italic;
+  margin: 0;
+}
 
 /* ================================================================
-   10) ACTIVITIES (auto-fit box) & FOOTER
+   10) SKILL CARDS
+================================================================ */
+.skill-card{ 
+  width:120px; 
+  text-align:center; 
+  animation:float 6s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px) scale(1.1);
+  animation-play-state: paused;
+}
+
+.skill-card img{ 
+  width:80px; 
+  height:80px; 
+  object-fit:contain; 
+  margin-bottom:.75rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  transition: filter 0.3s ease;
+}
+
+.skill-card:hover img {
+  filter: drop-shadow(0 4px 12px var(--card-glow));
+}
+
+.skill-card h4 {
+  font-size: clamp(.9rem, .85rem + .3vw, 1.1rem);
+  margin: 0;
+}
+
+/* ================================================================
+   11) ACTIVITIES & FOOTER
 ================================================================ */
 #activities .info-card{
-  width:min(900px, 90vw);
+  width:min(1000px, 90vw);
   margin:0 auto;
-  padding:1.25rem 1.75rem;
-  background:rgba(0,0,0,.78);
-  border-radius:16px;
-  box-shadow:0 10px 30px rgba(0,0,0,.6);
-  /* override any earlier grid/square assumptions */
+  padding:2.5rem 2.5rem;
+  background:rgba(0,0,0,.85);
+  border-radius:20px;
+  box-shadow:0 12px 40px rgba(0,0,0,.7);
+  border: 2px solid rgba(195, 177, 225, 0.3);
   aspect-ratio:auto;
 }
-#activities h2{ margin:0 0 .75rem; }
+
+#activities h2{ 
+  margin:0 0 1.5rem;
+}
+
 #activities .activities-list{
   list-style:none;
   margin:0;
   padding:0;
+  text-align: left;
+  display: grid;
+  gap: 1rem;
+}
+
+#activities .activities-list li {
+  font-size: clamp(1rem, .95rem + .4vw, 1.3rem);
+  padding: 0.75rem 1rem;
+  background: rgba(195, 177, 225, 0.1);
+  border-radius: 8px;
+  border-left: 3px solid #C3B1E1;
+  transition: all 0.3s ease;
+}
+
+#activities .activities-list li:hover {
+  background: rgba(195, 177, 225, 0.2);
+  transform: translateX(8px);
+  border-left-color: #fff;
 }
 
 footer.footer{
   text-align:center;
-  padding:0;
+  padding:2rem 0;
   color:#bbb;
   font-size:1.3rem;
+  margin-top: 2rem;
 }
 
 /* ================================================================
-   11) RESPONSIVE
+   12) RESPONSIVE
 ================================================================ */
+@media (max-width: 1024px){
+  .cards-container{ 
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); 
+  }
+  .flip-card, .experience-card { 
+    max-width:380px; 
+  }
+}
+
 @media (max-width: 900px){
-  .cards-container{ grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+  .hero-header-container {
+    flex-wrap: wrap;
+  }
+
+  .hero-image img {
+    width: 250px;
+    height: 330px;
+  }
 }
 
 @media (max-width: 768px){
-  .flip-card{ max-width:240px; }
-  .skill-card{ width:80px; }
+  .cards-container{ 
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); 
+    gap: 2rem;
+  }
+  .flip-card, .experience-card { 
+    max-width:340px; 
+  }
+  .skill-card{ 
+    width:100px; 
+  }
+  .skill-card img {
+    width: 70px;
+    height: 70px;
+  }
 }
 
 @media (max-width: 600px){
-  /* Nav wraps into two centered rows */
-  #navButtons{
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:.6rem .8rem;
+  /* Hero Section Mobile */
+  .hero-section {
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
   }
+
+  .hero-header-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* Stack photos vertically on mobile, smaller size */
+  .hero-image img {
+    width: 220px;
+    height: 280px;
+  }
+
+  /* Remove tilt on mobile for cleaner look */
+  .hero-image-left img,
+  .hero-image-right img {
+    transform: rotate(0deg);
+  }
+
+  .hero-image-left img:hover,
+  .hero-image-right img:hover {
+    transform: translateY(-5px) scale(1.02);
+  }
+
+  .masthead h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .subtitle {
+    font-size: clamp(1rem, 4vw, 1.3rem);
+  }
+
+  .hero-about {
+    padding: 1.5rem 1.5rem;
+    margin: 1rem 0 1.5rem;
+  }
+
+  .hero-about p {
+    font-size: clamp(1rem, 3.5vw, 1.2rem);
+    line-height: 1.6;
+  }
+
+  /* Nav wraps nicely on mobile */
+  #navButtons{
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    max-width: 100%;
+  }
+  
   .navButton{
-    flex:1 1 calc(45% - .8rem);
-    min-width:140px;
-    padding:.6rem 0;
-    font-size:14px;
+    flex: 1 1 calc(50% - 0.75rem);
+    min-width: 130px;
+    padding: 0.85rem 1rem;
+    font-size: 14px;
   }
 
   .cards-container{
-    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    grid-template-columns:1fr;
+    gap: 2rem;
+  }
+
+  .flip-card, .experience-card {
+    max-width:360px;
+    width: 90%;
   }
 
   .flip-card{
-    max-width:260px;
-    aspect-ratio:2 / 3;           /* a bit taller on phones */
+    aspect-ratio:2.5 / 3.5;
   }
-  .flip-card-front{ grid-template-rows:52% auto auto; }
 
-  /* keep Activities on-screen if list grows long */
+  .flip-card-front{ 
+    grid-template-rows:50% auto auto auto; 
+  }
+
+  .emoji-display {
+    font-size: 6rem;
+  }
+
   #activities .info-card{
-    width:min(92vw, 520px);
-    max-height:80svh;
+    width:min(95vw, 520px);
+    max-height:85svh;
     display:grid;
     grid-template-rows:auto 1fr;
-  }
-  #activities .activities-list{
-    overflow-y:auto;
-    padding-right:.25rem;
+    padding: 2rem 1.5rem;
   }
 
-  :root{ --section-pad:56px; }    /* tighter vertical padding on phones */
+  #activities .activities-list{
+    overflow-y:auto;
+    padding-right:.5rem;
+  }
+
+  :root{ 
+    --section-pad:56px; 
+  }
 }
 
 @media (max-width: 430px){
-  .cards-container{ grid-template-columns:1fr; }
-  .flip-card{
-    width:90vw;
-    max-width:300px;
+  .hero-section {
+    padding: 1rem 0.75rem;
+  }
+
+  .hero-image img {
+    width: 180px;
+    height: 240px;
+  }
+
+  .hero-about {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .navButton{
+    flex: 1 1 calc(50% - 0.75rem);
+    min-width: 120px;
+    padding: 0.75rem 0.75rem;
+    font-size: 13px;
+  }
+
+  .flip-card, .experience-card {
+    width:92vw;
+    max-width:340px;
     margin:0 auto;
   }
-  .navButton{
-    flex:1 1 calc(45% - .8rem);
-    min-width:130px;
-    padding:.55rem 0;
-    font-size:14px;
+
+  .skill-card {
+    width: 90px;
   }
+  
+  .skill-card img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .emoji-display {
+    font-size: 5rem;
+  }
+}
+
+/* ================================================================
+   13) PERFORMANCE OPTIMIZATIONS
+================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* GPU acceleration for animated elements */
+.flip-card,
+.experience-card,
+.skill-card,
+.navButton {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
