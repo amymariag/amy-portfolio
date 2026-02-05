@@ -158,9 +158,19 @@ export default function App() {
       {/* ---------- Terminal background ---------- */}
       <div className="faulty-terminal-container">
         <FaultyTerminal
-          scale={1.5} gridMul={[2,1]} digitSize={1.2} timeScale={0.5}
-          scanlineIntensity={0.5} tint="#C3B1E1" mouseReact mouseStrength={0.5}
-          noiseAmp={1} curvature={0.1} brightness={0.6}
+             scale={1.2}
+             digitSize={2.4}
+             scanlineIntensity={0.4}
+             glitchAmount={0.7}
+             flickerAmount={1}
+             noiseAmp={0}
+             chromaticAberration={0}
+             dither={0}
+             curvature={0.2}
+             tint="#ffffff"
+             mouseReact
+             mouseStrength={0.2}
+             brightness={0.7}
         />
       </div>
 
