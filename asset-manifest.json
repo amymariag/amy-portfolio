@@ -1,13 +1,15 @@
 {
   "files": {
     "main.css": "/amy-portfolio/static/css/main.bb076332.css",
-    "main.js": "/amy-portfolio/static/js/main.770de4c4.js",
+    "main.js": "/amy-portfolio/static/js/main.005bd1c7.js",
     "static/media/amy-grad-2.jpg": "/amy-portfolio/static/media/amy-grad-2.81f95c565bd0fc19c541.jpg",
     "static/media/amy-grad-1.jpg": "/amy-portfolio/static/media/amy-grad-1.251694e25ba7aa42a342.jpg",
+    "static/media/react-icon.png": "/amy-portfolio/static/media/react-icon.f765db1cd33b5d74aa9f.png",
     "static/media/ucf_.jpg": "/amy-portfolio/static/media/ucf_.b3cc4f7643653c101c20.jpg",
     "static/media/finalcut-icon.png": "/amy-portfolio/static/media/finalcut-icon.7e607e012ffd4b97a209.png",
     "static/media/sql-icon.png": "/amy-portfolio/static/media/sql-icon.ec09dabc8b7362ac2189.png",
     "static/media/logicpro-icon.png": "/amy-portfolio/static/media/logicpro-icon.c2712a469315169a62a6.png",
+    "static/media/nodejs-icon.png": "/amy-portfolio/static/media/nodejs-icon.9fac03906d1dfc32074f.png",
     "static/media/mindmove.png": "/amy-portfolio/static/media/mindmove.c4744e714444fb0cfa7e.png",
     "static/media/java-icon.png": "/amy-portfolio/static/media/java-icon.26fabfb6a8fae662f174.png",
     "static/media/siemens.jpg": "/amy-portfolio/static/media/siemens.d49efc5008917f7fbc24.jpg",
@@ -26,10 +28,10 @@
     "static/media/javascript-icon.png": "/amy-portfolio/static/media/javascript-icon.266bd9fb2663dcc057b4.png",
     "index.html": "/amy-portfolio/index.html",
     "main.bb076332.css.map": "/amy-portfolio/static/css/main.bb076332.css.map",
-    "main.770de4c4.js.map": "/amy-portfolio/static/js/main.770de4c4.js.map"
+    "main.005bd1c7.js.map": "/amy-portfolio/static/js/main.005bd1c7.js.map"
   },
   "entrypoints": [
     "static/css/main.bb076332.css",
-    "static/js/main.770de4c4.js"
+    "static/js/main.005bd1c7.js"
   ]
 }
