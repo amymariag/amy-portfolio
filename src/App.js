@@ -238,7 +238,7 @@ export default function App() {
                     <p>Wiesbaden, Germany</p>
                     <p>August 2017 - May 2020</p>
                   </>}
-                  back={<p>DoDEA Europe High School Diploma</p>}
+                  back={<p>German Red Cross Youth Club, Vice President of Student Government, Volleyball, Soccer, Women's Golf, Orchestra, Yearbook Designer, Student Ambassador, Musical Theatre, National Thespian Honor Society, National Honor Society</p>}
                 />
               </div>
             </div>
