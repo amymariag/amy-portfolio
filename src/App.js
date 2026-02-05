@@ -185,7 +185,7 @@ export default function App() {
           {/* About Me - Front and Center */}
           <div className="hero-about">
             <p>
-              Hello! I'm Amy Gonzalez, a Computer Science Graduate from the University of Central Florida and 2x Tesla Software Engineering Intern. I'm passionate about creating intuitive and creative software for fun and to cultivate new solutions to make life easier. Nice to meet you!
+              Hello! I'm Amy Gonzalez, a Computer Science Graduate from the University of Central Florida and 2x Tesla Software Engineering Intern. I'm passionate about creating intuitive and creative software both for fun and to cultivate new solutions to make life easier. Nice to meet you!
             </p>
           </div>
 
