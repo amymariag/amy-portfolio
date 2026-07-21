@@ -112,7 +112,7 @@ export default function App() {
       emoji: '🌸',
       tech:  'React · Swift/SwiftUI · Node.js/Express · MongoDB',
       desc:  'Building a web and iOS platform for sharing and discovering what friends are into. Features garden themed profile pages where users can cultivate their interests, with a React frontend, SwiftUI mobile app, and Node.js backend.',
-      date:  'February 2026',
+      date:  '2026',
     },
     {
       id:    'campus-critters',
@@ -120,7 +120,7 @@ export default function App() {
       emoji: '🐊',
       tech:  'Flutter · PostgreSQL · Azure · Google Maps API · Python/ML',
       desc:  'Built a cross platform app for students to share wildlife sightings on campus, integrating Google Maps, Google Gemini API, cloud storage, and machine learning models for photo classification.',
-      date:  'December 2025',
+      date:  '2026',
     },
     {
       id:    'vanity-vinyl',
@@ -128,7 +128,7 @@ export default function App() {
       emoji: '💿',
       tech:  'Swift/SwiftUI · Core Data · Firebase · VisionKit · Core Location',
       desc:  'Built an iOS app for record collectors to scan albums, catalog collections with Core Data, and connect with nearby users via Firebase powered listings and chat.',
-      date:  'August 2025',
+      date:  '2025',
     },
     {
       id:    'mindmove',
@@ -136,7 +136,7 @@ export default function App() {
       img:   require('./assets/img/mindmove.png'),
       tech:  'SwiftUI · HealthKit · WatchKit',
       desc:  'Created an iOS and Apple Watch app that encourages short movement breaks throughout the day by detecting sedentary patterns via HealthKit and CoreMotion.',
-      date:  'June 2025',
+      date:  '2025',
     },
     {
       id:    'ieee-speaker',
@@ -144,7 +144,7 @@ export default function App() {
       emoji: '🔊',
       tech:  'C/C++ · Embedded Systems · Arduino · Bluetooth · Circuit Design',
       desc:  'Developed a portable speaker system by assembling drivers, amplifier circuits, and enclosure design, while programming a microcontroller for wireless audio streaming and volume control.',
-      date:  'March 2025',
+      date:  '2025',
     },
   ];
 

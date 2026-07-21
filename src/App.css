@@ -142,6 +142,7 @@ html, body{
   background: rgba(0, 0, 0, 0.8);
   border: 2px solid rgba(195, 177, 225, 0.4);
   border-radius: 20px;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
 }
