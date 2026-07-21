@@ -350,7 +350,7 @@ export default function App() {
         </main>
 
         <footer className="footer">
-          <p>© 2025 Amy Marie Gonzalez</p>
+          <p>© 2026 Amy Marie Gonzalez</p>
         </footer>
       </div>
     </div>
