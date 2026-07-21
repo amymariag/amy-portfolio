@@ -6,13 +6,13 @@
 ================================================================ */
 :root{
   --section-pad: clamp(56px, 8vh, 100px);
-  --bg-deep: #0a0e14;
-  --surface: rgba(20, 25, 34, 0.88);
-  --surface-flat: #131822;
-  --border-soft: rgba(148, 163, 184, 0.16);
+  --bg-deep: #000408;
+  --surface: rgba(7, 0, 5, 0.88);
+  --surface-flat: #000309;
+  --border-soft: rgba(245, 247, 249, 0.16);
   --border-hover: rgba(201, 169, 97, 0.45);
   --text-primary: #eef1f6;
-  --text-secondary: #a6adba;
+  --text-secondary: #fbf8fb;
   --accent: #c9a961;
   --accent-soft: rgba(201, 169, 97, 0.14);
   --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.35);
