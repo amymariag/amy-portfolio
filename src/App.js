@@ -180,9 +180,7 @@ export default function App() {
         {/* ===== HERO SECTION (Name + Photos + About + Nav) ===== */}
         <section id="hero" className="hero-section">
           <div className="hero-header-container">
-            <div className="hero-image hero-image-left">
-              <img src={require('./assets/img/amy-grad-1.jpg')} alt="Amy Gonzalez UCF Graduation" />
-            </div>
+            
             <header className="masthead">
               <h1>Amy Marie Gonzalez</h1>
               <div className="subtitle">Software Engineer | Full-Stack & iOS Developer</div>
@@ -195,7 +193,7 @@ export default function App() {
           {/* About Me - Front and Center */}
           <div className="hero-about">
             <p>
-              Hello! I'm Amy Gonzalez, a Computer Science Graduate from the University of Central Florida and 2x Tesla Software Engineering Intern. I'm passionate about creating intuitive and creative software both for fun and to cultivate new solutions to make life easier. Nice to meet you!
+              Hello! I'm Amy Gonzalez, a Computer Science Graduate from the University of Central Florida and 2x Tesla Software Engineering Intern. I code both for fun and to cultivate new solutions to make life easier. Nice to meet you!
             </p>
           </div>
 
@@ -222,7 +220,7 @@ export default function App() {
                     <h3>University of Central Florida</h3>
                     <p>Honors B.S. Computer Science</p>
                     <p>GPA: 3.5</p>
-                    <p>Aug 2022 – Dec 2025</p>
+                    <p>Aug 2022 – May 2026</p>
                   </>}
                   back={<>
                     <p><strong>Relevant Coursework</strong></p>
@@ -236,7 +234,6 @@ export default function App() {
                   <img src={whsLogo} alt="Wiesbaden High School logo" className="card-logo"/>
                     <h3>Wiesbaden High School</h3>
                     <p>Wiesbaden, Germany</p>
-                    <p>August 2017 - May 2020</p>
                   </>}
                   back={<p>German Red Cross Youth Club, Vice President of Student Government, Volleyball, Soccer, Women's Golf, Orchestra, Yearbook Designer, Student Ambassador, Musical Theatre, National Thespian Honor Society, National Honor Society</p>}
                 />
